@@ -1,23 +1,32 @@
 /* Color Scheme */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+
 $honeycomb: #fdae06;
 $lightgray: #EEE;
 $mediumgray: #BBB;
+$midnight: #27272b;
 $bluesteel: #011d5b;
 
-body {
-  background-color: $honeycomb;
-  font-family: "HelveticaNeue-Light";
-  font-weight: 300;
-  color: $lightgray;
+h1 {
+  font-family: "Lato";
+  font-weight: 700;
 }
 
 /* Home Page */
+
+.home-page-container {
+  background-color: $honeycomb;
+  h1 {
+    color: $lightgray;
+  }
+}
 
 button.home {
   background-color: $honeycomb;
   border: 1px solid $bluesteel;
   color: $bluesteel;
-  font-family: "HelveticaNeue-Light";
+  font-family: "Lato";
+  font-weight: 300;
   &:hover {
     background-color: $bluesteel;
     color: $mediumgray;
