@@ -2,6 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
 
 $honeycomb: #fdae06;
+$white: #FFF;
 $lightgray: #EEE;
 $mediumgray: #BBB;
 $midnight: #27272b;
@@ -15,9 +16,11 @@ h1 {
 /* Home Page */
 
 .home-page-container {
+  height: 600px;
   background-color: $honeycomb;
   h1 {
     color: $lightgray;
+    font-size: 64px;
   }
 }
 
@@ -27,8 +30,21 @@ button.home {
   color: $bluesteel;
   font-family: "Lato";
   font-weight: 300;
+  font-size: 24px;
   &:hover {
     background-color: $bluesteel;
     color: $mediumgray;
+  }
+}
+
+/* Footer */
+
+footer {
+  height: 200px;
+  padding: 80px 0;
+  background-color: $midnight;
+  color: $white;
+  p {
+    font-family: "Lato";
   }
 }
