@@ -1,6 +1,25 @@
+/* Color Scheme */
+$honeycomb: #fdae06;
+$lightgray: #EEE;
+$mediumgray: #BBB;
+$bluesteel: #011d5b;
+
 body {
-  background-color: #fdae06;
+  background-color: $honeycomb;
   font-family: "HelveticaNeue-Light";
   font-weight: 300;
-  color: #EEE;
+  color: $lightgray;
+}
+
+/* Home Page */
+
+button.home {
+  background-color: $honeycomb;
+  border: 1px solid $bluesteel;
+  color: $bluesteel;
+  font-family: "HelveticaNeue-Light";
+  &:hover {
+    background-color: $bluesteel;
+    color: $mediumgray;
+  }
 }
