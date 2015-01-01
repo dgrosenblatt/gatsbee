@@ -24,24 +24,25 @@ $bluesky: #CEECEF;
     font-weight: 700;
     text-align: center;
   }
-}
-
-.buttons {
-  margin-bottom: 100px;
-  button {
-    background-color: $honeycomb;
-    border: 2px solid $bluesteel;
-    color: $bluesteel;
-    font-family: "Lato";
-    font-weight: 400;
-    font-size: 24px;
-    &:hover {
-      background-color: $bluesteel;
-      color: $honeycomb;
-      cursor: pointer;
+  .buttons {
+    margin-bottom: 100px;
+    button {
+      background-color: $honeycomb;
+      border: 2px solid $bluesteel;
+      color: $bluesteel;
+      font-family: "Lato";
+      font-weight: 400;
+      font-size: 24px;
+      &:hover {
+        background-color: $bluesteel;
+        color: $honeycomb;
+        cursor: pointer;
+      }
     }
   }
 }
+
+
 
 .stories {
   li {
@@ -99,6 +100,12 @@ footer {
   background-color: $midnight;
   li {
     text-align: center;
-    color: $honeycomb;
+    a {
+      color: $honeycomb;
+      text-decoration: none;
+      &:hover {
+        color: $red;
+      }
+    }
   }
 }
