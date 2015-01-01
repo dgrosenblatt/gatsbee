@@ -1,0 +1,24 @@
+<header>
+  <div class="row">
+    <div class="small-3 columns">
+      <h1><%= link_to "GatsBee", root_path %></h1>
+    </div>
+
+    <% if try(:current_user) %>
+      <div class="small-4 columns">
+        <ul class="small-block-grid-3">
+          <li class="option"><p><%= link_to "Clubs", "#" %></p></li>
+          <li class="option"><p><%= link_to "Profile", "#" %></p></li>
+          <li class="option"><p><%= link_to "Sign Out", "#" %></p></li>
+        </ul>
+      </div>
+    <% else %>
+      <div class="small-1 columns">
+        <ul class="small-block-grid-1">
+          <li class="option"><p><%= link_to "Sign In", "#" %></p></li>
+        </ul>
+      </div>
+    <% end %>
+
+  </div>
+</header>

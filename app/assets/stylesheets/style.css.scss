@@ -1,7 +1,7 @@
 /* Color Scheme */
 
 $honeycomb: #FFC52C;
-$bluesteel: #FB0C06;
+$red: #FB0C06;
 $white: #FFF;
 $lightgray: #E7EDEA;
 $mediumgray: #BBB;
@@ -16,6 +16,7 @@ $bluesky: #CEECEF;
 .home-page-container {
   height: 600px;
   background-color: $honeycomb;
+  border-bottom: 1px solid $red;
   h1 {
     color: $bluesteel;
     font-size: 64px;
@@ -36,7 +37,8 @@ $bluesky: #CEECEF;
     font-size: 24px;
     &:hover {
       background-color: $bluesteel;
-      color: $lightgray;
+      color: $honeycomb;
+      cursor: pointer;
     }
   }
 }
@@ -55,6 +57,39 @@ $bluesky: #CEECEF;
   }
 }
 
+/* Header */
+
+header {
+  background-color: $bluesteel;
+  font-family: "Lato";
+  h1 {
+    padding-top: 3px;
+    margin: 0;
+    a {
+      &:hover {
+        color: $honeycomb;
+      }
+    }
+  }
+  li {
+    p {
+      text-align: center;
+    }
+    &:hover {
+      background-color: $honeycomb;
+      a {
+        color: $bluesteel;
+      }
+    }
+  }
+  a {
+    color: $lightgray;
+    text-decoration: none;
+  }
+  .option {
+    padding: 0;
+  }
+}
 
 /* Footer */
 
@@ -62,8 +97,8 @@ footer {
   height: 200px;
   padding: 80px 0;
   background-color: $midnight;
-  color: $white;
   li {
     text-align: center;
+    color: $honeycomb;
   }
 }
