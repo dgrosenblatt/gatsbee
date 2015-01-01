@@ -1,17 +1,15 @@
 /* Color Scheme */
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
 
-$honeycomb: #fdae06;
+$honeycomb: #FFC52C;
+$bluesteel: #FB0C06;
 $white: #FFF;
-$lightgray: #EEE;
+$lightgray: #E7EDEA;
 $mediumgray: #BBB;
-$midnight: #27272b;
-$bluesteel: #011d5b;
+$midnight: #27272B;
+$bluesteel: #030D4F;
+$bluesky: #CEECEF;
 
-h1 {
-  font-family: "Lato";
-  font-weight: 700;
-}
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
 
 /* Home Page */
 
@@ -19,23 +17,44 @@ h1 {
   height: 600px;
   background-color: $honeycomb;
   h1 {
-    color: $lightgray;
+    color: $bluesteel;
     font-size: 64px;
+    font-family: "Lato";
+    font-weight: 700;
+    text-align: center;
   }
 }
 
-button.home {
-  background-color: $honeycomb;
-  border: 1px solid $bluesteel;
-  color: $bluesteel;
-  font-family: "Lato";
-  font-weight: 300;
-  font-size: 24px;
-  &:hover {
-    background-color: $bluesteel;
-    color: $mediumgray;
+.buttons {
+  margin-bottom: 100px;
+  button {
+    background-color: $honeycomb;
+    border: 2px solid $bluesteel;
+    color: $bluesteel;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 24px;
+    &:hover {
+      background-color: $bluesteel;
+      color: $lightgray;
+    }
   }
 }
+
+.stories {
+  li {
+    p {
+      font-family: "Lato";
+      font-size: 18px;
+      color: $bluesteel;
+      text-align: center;
+      height: 175px;
+      padding-top: 78px;
+      border: 2px solid $bluesteel;
+    }
+  }
+}
+
 
 /* Footer */
 
@@ -44,7 +63,7 @@ footer {
   padding: 80px 0;
   background-color: $midnight;
   color: $white;
-  p {
-    font-family: "Lato";
+  li {
+    text-align: center;
   }
 }
