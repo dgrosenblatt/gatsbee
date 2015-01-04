@@ -10,6 +10,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-google-oauth2'
 gem 'json'
+
+gem 'rails_12factor', group: :production
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
@@ -28,3 +31,5 @@ end
 group :test do
   gem 'coveralls', require: false
 end
+
+ruby "2.0.0"
