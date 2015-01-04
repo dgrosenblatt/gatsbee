@@ -4,12 +4,12 @@
       <h1><%= link_to "GatsBee", root_path %></h1>
     </div>
 
-    <% if try(:current_user) %>
+    <% if current_user %>
       <div class="small-4 columns">
         <ul class="small-block-grid-3">
           <li class="option"><p><%= link_to "Clubs", "#" %></p></li>
           <li class="option"><p><%= link_to "Profile", "#" %></p></li>
-          <li class="option"><p><%= link_to "Sign Out", "#" %></p></li>
+          <li class="option"><p><%= link_to "Sign Out", signout_path %></p></li>
         </ul>
       </div>
     <% else %>
@@ -17,11 +17,7 @@
         <ul class="small-block-grid-1">
           <li class="option">
             <p>
-              <% if current_user %>
-              <%= link_to "Sign out", signout_path %>
-              <% else %>
               <%= link_to "Sign in", "/auth/google_oauth2" %>
-              <% end %>
             </p>
           </li>
         </ul>
