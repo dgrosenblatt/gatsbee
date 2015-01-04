@@ -15,7 +15,15 @@
     <% else %>
       <div class="small-1 columns">
         <ul class="small-block-grid-1">
-          <li class="option"><p><%= link_to "Sign In", "#" %></p></li>
+          <li class="option">
+            <p>
+              <% if current_user %>
+              <%= link_to "Sign out", signout_path %>
+              <% else %>
+              <%= link_to "Sign in", "/auth/google_oauth2" %>
+              <% end %>
+            </p>
+          </li>
         </ul>
       </div>
     <% end %>
