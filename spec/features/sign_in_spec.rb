@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Signing in with google" do
   scenario "from the home page" do
-    set_omniauth()
+    set_omniauth
     visit "/"
     click_link "Sign in"
 
