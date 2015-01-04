@@ -7,6 +7,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-google-oauth2'
+gem 'json'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
@@ -19,6 +22,7 @@ group :development, :test do
   gem 'launchy'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem 'dotenv-rails'
 end
 
 group :test do
