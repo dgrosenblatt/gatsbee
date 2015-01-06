@@ -1,0 +1,12 @@
+<div class="clubs-container">
+  <div class="row">
+    <div class="small-12 columns">
+      <h1>All Clubs</h1>
+
+      <%= @clubs.each do |club| %>
+        <h4><%= club.name %></h4>
+        <p><%= club.description %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
