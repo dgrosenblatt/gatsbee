@@ -9,6 +9,10 @@
 <body>
   <%= render "layouts/header" %>
 
+  <% if flash.any? %>
+    <div class="flash"><%= flash.notice %></div>
+  <% end %>
+
   <div class="body-container">
     <%= yield %>
   </div>
