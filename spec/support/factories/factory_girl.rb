@@ -10,4 +10,12 @@ FactoryGirl.define do
     favorite_authors "Charles Dickens, Jonathan Franzen"
     favorite_books "Harry Potter, Lord of the Rings"
   end
+
+  factory :club do
+    name "MyString"
+    description "A book club for all the cool programmers"
+    current_book_id 1
+    visibility "public"
+    organizer_id 1
+  end
 end
