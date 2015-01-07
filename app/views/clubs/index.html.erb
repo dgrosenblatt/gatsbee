@@ -3,8 +3,8 @@
     <div class="small-12 columns">
       <h1>All Clubs</h1>
 
-      <%= @clubs.each do |club| %>
-        <h4><%= club.name %></h4>
+      <% @clubs.each do |club| %>
+        <h3><%= link_to club.name, club %></h3>
         <p><%= club.description %></p>
         <p>Currently Reading:</p>
       <% end %>

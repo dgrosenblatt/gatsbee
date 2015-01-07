@@ -119,9 +119,20 @@ footer {
   }
 }
 
+/* Flash messages */
+
+.flash {
+  background-color: $red;
+  color: $lightgray;
+  text-align: center;
+  font-family: "Lato";
+  font-size: 24px;
+}
+
 /* Clubs */
 
-.clubs-container {
+.clubs-container,
+.profile-container {
   background-color: $lightgray;
   min-height: 600px;
 }
