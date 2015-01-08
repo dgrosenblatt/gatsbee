@@ -1,12 +1,27 @@
 <div class="clubs-container">
   <div class="row">
     <div class="small-12 columns">
-      <h1>All Clubs</h1>
-
-      <%= @clubs.each do |club| %>
-        <h4><%= club.name %></h4>
-        <p><%= club.description %></p>
-        <p>Currently Reading:</p>
+      <% if @query %>
+        <h1>Results for '<%= @query %>'</h1>
+      <% else %>
+        <h1>All Clubs</h1>
+      <% end %>
+      <div>
+        <%= form_tag clubs_path, method: :get do %>
+          <%= label_tag :query, "Search Book Clubs" %>
+          <%= text_field_tag :query %>
+          <%= submit_tag "Search" %>
+        <% end %>
+      </div>
+      <% if current_user %>
+        <p><%= link_to "Create New Book Club", new_club_path %></p>
+      <% end %>
+      <% @clubs.each do |club| %>
+        <div class="club">
+          <h3><%= link_to club.name, club %></h3>
+          <p><%= club.description %></p>
+          <p>Currently Reading:</p>
+        </div>
       <% end %>
     </div>
   </div>

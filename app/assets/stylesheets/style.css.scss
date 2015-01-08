@@ -51,8 +51,6 @@ body {
   }
 }
 
-
-
 .stories {
   li {
     p {
@@ -119,9 +117,33 @@ footer {
   }
 }
 
+/* Flash messages */
+
+.flash {
+  background-color: $red;
+  color: $lightgray;
+  text-align: center;
+  font-family: "Lato";
+  font-size: 24px;
+}
+
 /* Clubs */
 
-.clubs-container {
+.clubs-container,
+.profile-container {
   background-color: $lightgray;
   min-height: 600px;
+}
+
+.club {
+  background-color: $honeycomb;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  a {
+    text-decoration: none;
+    color: $midnight;
+    &:hover {
+      color: $red;
+    }
+  }
 }
