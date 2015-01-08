@@ -10,9 +10,7 @@ feature "User views profile page" do
 
   scenario "after signing in" do
     @user = FactoryGirl.create(:user)
-    set_omniauth
-    visit "/"
-    click_link "Sign in"
+    sign_in
     click_link "Profile"
 
     expect(page).to have_content "Profile"

@@ -2,7 +2,9 @@
   <div class="row">
     <div class="small-12 columns">
       <h1>All Clubs</h1>
-
+      <% if current_user %>
+        <p><%= link_to "Create New Book Club", new_club_path %></p>
+      <% end %>
       <% @clubs.each do |club| %>
         <h3><%= link_to club.name, club %></h3>
         <p><%= club.description %></p>
