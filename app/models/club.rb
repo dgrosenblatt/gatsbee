@@ -17,6 +17,8 @@ class Club < ActiveRecord::Base
     presence: true
 
   def self.search(query)
-    where("name ILIKE ?", "%#{query}%")
+    where("plainto_tsquery(?) @@ " +
+          "to_tsvector('english', name || ' ' || description)", 
+          query)
   end
 end
