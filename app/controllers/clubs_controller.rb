@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_action :authenticate_user, only: [:show]
+  before_action :authenticate_user, only: [:show, :create]
 
   def index
     if params[:query]
