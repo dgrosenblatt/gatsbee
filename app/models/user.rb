@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :clubs, join_table: "memberships" 
+  has_many :memberships
+  has_many :clubs, through: :memberships
   has_many :organized_clubs, class_name: "Club", foreign_key: "organizer_id"
 
   def self.from_omniauth(auth)

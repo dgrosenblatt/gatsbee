@@ -51,8 +51,6 @@ body {
   }
 }
 
-
-
 .stories {
   li {
     p {
@@ -135,4 +133,17 @@ footer {
 .profile-container {
   background-color: $lightgray;
   min-height: 600px;
+}
+
+.club {
+  background-color: $honeycomb;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  a {
+    text-decoration: none;
+    color: $midnight;
+    &:hover {
+      color: $red;
+    }
+  }
 }

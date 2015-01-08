@@ -22,6 +22,7 @@ class ClubsController < ApplicationController
     @club = Club.new(club_params)
     @club.organizer = current_user
     if @club.save
+      @club.users << current_user
       redirect_to @club, notice: "New Club Created!"
     else
       render :new

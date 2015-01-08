@@ -1,5 +1,6 @@
 class Club < ActiveRecord::Base
-  has_and_belongs_to_many :users, join_table: "memberships"
+  has_many :memberships
+  has_many :users, through: :memberships
   belongs_to :organizer, class_name: "User"
 
   validates :name,
@@ -18,7 +19,7 @@ class Club < ActiveRecord::Base
 
   def self.search(query)
     where("plainto_tsquery(?) @@ " +
-          "to_tsvector('english', name || ' ' || description)", 
+          "to_tsvector('english', name || ' ' || description)",
           query)
   end
 end
