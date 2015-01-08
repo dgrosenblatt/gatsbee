@@ -2,7 +2,12 @@ class ClubsController < ApplicationController
   before_action :authenticate_user, only: [:show]
 
   def index
-    @clubs = Club.all
+    if params[:query]
+      @query = params[:query]
+      @clubs = Club.search(@query)
+    else
+      @clubs = Club.all
+    end
   end
 
   def show

@@ -15,4 +15,8 @@ class Club < ActiveRecord::Base
 
   validates :organizer_id,
     presence: true
+
+  def self.search(query)
+    where("name ILIKE ?", "%#{query}%")
+  end
 end
