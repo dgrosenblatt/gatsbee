@@ -54,12 +54,15 @@ body {
 }
 
 .stories {
+  min-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
   position: absolute;
   z-index: -1;
-  width: 2000px;
   top: -5px;
   left: -107px;
   .hex {
+    display: inline-block;
     float: left;
     margin-left: 3px;
     margin-bottom: -57px;
@@ -83,9 +86,15 @@ body {
   }
   .hex-row {
     clear: left;
+    width: 100%;
+    overflow: visible;
+    white-space: nowrap;
   }
   .hex-row.even {
     margin-left: 105px;
+    width: 100%;
+    overflow: visible;
+    white-space: nowrap;
   }
 }
 
