@@ -1,0 +1,26 @@
+<div class="large-6 small-12 large-centered columns">
+  <%= form_for @club do |f| %>
+
+  <div class="club-form-errors">
+    <% if @club.errors.any? %>
+    <h3>Book Club not created.</h3>
+    <% @club.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+    <% end %>
+    <% end %>
+  </div>
+
+  <%= f.label :name, "Book Club Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :visibility %>
+  <%= f.select(:visibility,
+  options_for_select([["Public", 1], ["Private", 2]]))  %>
+
+  <%= f.submit %>
+  <% end %>
+
+</div>
