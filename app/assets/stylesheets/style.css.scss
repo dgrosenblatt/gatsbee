@@ -13,16 +13,18 @@ $bluesky: #CEECEF;
 
 body {
   background-color: $midnight;
+  font-family: "Lato";
 }
 
 /* Home Page */
 
 .home-page-container {
   height: 600px;
-  background-color: $honeycomb;
+  background-color: transparent;
   border-bottom: 1px solid $red;
   h1 {
-    color: $bluesteel;
+    text-shadow: 1px 1px 3px $midnight;
+    color: $white;
     font-size: 64px;
     font-family: "Lato";
     font-weight: 700;
@@ -52,16 +54,38 @@ body {
 }
 
 .stories {
-  li {
-    p {
-      font-family: "Lato";
-      font-size: 18px;
-      color: $bluesteel;
-      text-align: center;
-      height: 175px;
-      padding-top: 78px;
-      border: 2px solid $bluesteel;
-    }
+  position: absolute;
+  z-index: -1;
+  width: 2000px;
+  top: -5px;
+  left: -107px;
+  .hex {
+    float: left;
+    margin-left: 3px;
+    margin-bottom: -57px;
+  }
+  .hex .top {
+    width: 0;
+    border-bottom: 60px solid $honeycomb;
+    border-left: 104px solid transparent;
+    border-right: 104px solid transparent;
+  }
+  .hex .middle {
+    width: 208px;
+    height: 120px;
+    background: $honeycomb;
+  }
+  .hex .bottom {
+    width: 0;
+    border-top: 60px solid $honeycomb;
+    border-left: 104px solid transparent;
+    border-right: 104px solid transparent;
+  }
+  .hex-row {
+    clear: left;
+  }
+  .hex-row.even {
+    margin-left: 105px;
   }
 }
 
