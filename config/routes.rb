@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  resources :clubs, only: [:index, :show, :new, :create, :edit, :update]
+  resources :clubs
 
   get '/profile', to: 'users#show', as: 'profile'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

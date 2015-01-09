@@ -13,4 +13,8 @@ feature "Editing a club" do
     expect(page).to have_content "lemon"
     expect(page).to have_content "blerg"
   end
+
+  scenario "as a regular club member"
+
+  scenario "without signing in"
 end
