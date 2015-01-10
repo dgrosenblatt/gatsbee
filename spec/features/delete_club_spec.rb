@@ -3,7 +3,7 @@ require "rails_helper"
 feature "Deleting a club" do
   scenario "as the club's organizer" do
     sign_in
-    create_club
+    organize_club
     click_link "Settings"
     click_link "Delete This Club"
 
