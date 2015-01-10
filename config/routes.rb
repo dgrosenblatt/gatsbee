@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
   resources :clubs
-  resources :memberships, only: [:create]
+  resources :memberships, only: [:create, :destroy]
 
   get '/profile', to: 'users#show', as: 'profile'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

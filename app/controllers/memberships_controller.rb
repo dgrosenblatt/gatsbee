@@ -13,4 +13,13 @@ class MembershipsController < ApplicationController
     end
     redirect_to @club
   end
+
+  def destroy
+    @membership = Membership.find(params[:id])
+    @club = @membership.club
+    if @membership.user == current_user && @club.organizer != current_user
+      @membership.destroy
+    end
+    redirect_to clubs_path, notice: "You have left #{@club.name}"
+  end
 end

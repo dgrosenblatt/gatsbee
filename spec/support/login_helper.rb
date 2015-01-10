@@ -4,7 +4,7 @@ def sign_in
   click_link "Sign in"
 end
 
-def create_club
+def organize_club
   club = FactoryGirl.build(:club)
   click_link "Clubs"
   click_link "Create New Book Club"

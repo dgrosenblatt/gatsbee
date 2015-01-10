@@ -12,6 +12,10 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find(params[:id])
+    if @club.users.include?(current_user)
+      @membership = Membership.find_by(user_id: current_user.id,
+                                       club_id: @club.id)
+    end
   end
 
   def new

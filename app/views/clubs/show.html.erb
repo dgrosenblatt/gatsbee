@@ -14,9 +14,14 @@
       <% @club.users.each do |user| %>
         <p><%= user.name %></p>
       <% end %>
-
+      <h4>Discussion:</h4>
+      <% if @club.users.include?(current_user) &&
+         @club.organizer != current_user %>
+        <%= link_to "Leave this Book Club", @membership,
+            method: :delete, data: { confirm: "Are you sure?" }%>
+      <% end %>
       <% if @club.organizer == current_user %>
-      <h4><%= link_to "Settings", edit_club_path(@club) %></h4>
+        <h4><%= link_to "Settings", edit_club_path(@club) %></h4>
       <% end %>
 
     </div>
