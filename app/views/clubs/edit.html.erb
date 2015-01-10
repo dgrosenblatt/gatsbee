@@ -1,0 +1,14 @@
+<div class="clubs-container">
+  <div class="row">
+    <div class="small-12 columns">
+      <h1>Edit Settings for <%= @club %></h1>
+      <%= render "form" %>
+      <div>
+        <h4>
+          <%= link_to "Delete This Club", club_path(@club),
+              method: :delete, data: { confirm: "Are you sure?" }%>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

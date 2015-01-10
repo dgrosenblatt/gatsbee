@@ -1,10 +1,14 @@
-<div class="profile-container">
+<div class="clubs-container">
   <div class="row">
     <div class="small-12 columns">
       <h1><%= @club.name %></h1>
       <h4><%= @club.description %></h4>
       <p>Organizer: <%= @club.organizer.name %></p>
       <p>Members:</p>
+
+      <% if @club.organizer == current_user %>
+      <h4><%= link_to "Settings", edit_club_path(@club) %></h4>
+      <% end %>
 
     </div>
   </div>

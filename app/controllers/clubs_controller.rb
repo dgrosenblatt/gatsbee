@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_action :authenticate_user, only: [:show, :create]
+  before_action :authenticate_user, except: :index
 
   def index
     if params[:query]
@@ -27,6 +27,27 @@ class ClubsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @club = Club.find(params[:id])
+    render :show if @club.organizer != current_user
+  end
+
+  def update
+    @club = Club.find(params[:id])
+    if @club.organizer == current_user
+      @club.update_attributes(club_params)
+      redirect_to @club, notice: "Book Club Updated!"
+    else
+      render :show
+    end
+  end
+
+  def destroy
+    @club = Club.find(params[:id])
+    @club.destroy if @club.organizer == current_user
+    redirect_to clubs_path, notice: "Club Deleted!"
   end
 
   private
