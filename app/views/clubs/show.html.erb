@@ -3,8 +3,17 @@
     <div class="small-12 columns">
       <h1><%= @club.name %></h1>
       <h4><%= @club.description %></h4>
-      <p>Organizer: <%= @club.organizer.name %></p>
-      <p>Members:</p>
+      <% unless @club.users.include? current_user %>
+        <%= form_for Membership.new do |f| %>
+          <%= f.hidden_field :club_id, value: @club.id %>
+          <%= f.submit "Join this Book Club", id: "join-club" %>
+        <% end %>
+      <% end %>
+      <h4>Organizer: <%= @club.organizer.name %></h4>
+      <h4>Members:</h4>
+      <% @club.users.each do |user| %>
+        <p><%= user.name %></p>
+      <% end %>
 
       <% if @club.organizer == current_user %>
       <h4><%= link_to "Settings", edit_club_path(@club) %></h4>
