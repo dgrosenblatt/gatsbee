@@ -1,18 +1,18 @@
 def set_omniauth
-  user = FactoryGirl.build(:user)
+  # user = FactoryGirl.build(:user)
   OmniAuth.config.test_mode = true
 
   OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
   {
-    provider: user.provider,
-    uid: user.uid,
+    provider: "google_oauth2",
+    uid: 12344321,
     info: {
-      name: user.name,
-      email: user.email
+      name: "Paul Pierce",
+      email: "P2@celtix.net"
      },
     credentials: {
-      token: user.oauth_token,
-      expires_at: user.oauth_expires_at
+      token: "934fAgutenberg23fn23o",
+      expires_at: Time.new(2018, 03, 21, 12, 0, 0, "+09:00")
     }
   })
 end
