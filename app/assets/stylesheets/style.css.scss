@@ -153,8 +153,8 @@ footer {
 /* Flash messages */
 
 .flash {
-  background-color: $red;
-  color: $lightgray;
+  background-color: $honeycomb;
+  color: $white;
   text-align: center;
   font-family: "Lato";
   font-size: 24px;
@@ -164,7 +164,7 @@ footer {
 
 .clubs-container,
 .profile-container {
-  background-color: $lightgray;
+  background-color: $white;
   min-height: 600px;
 }
 
@@ -179,4 +179,22 @@ footer {
       color: $red;
     }
   }
+}
+
+/* Comments */
+
+.comment {
+  &:hover {
+    #delete-comment {
+      visibility: visible;
+    }
+  }
+  #delete-comment {
+    color: $red;
+    visibility: hidden;
+  }
+}
+
+.profile-comment {
+  color: $honeycomb;
 }

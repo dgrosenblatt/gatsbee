@@ -12,10 +12,17 @@ FactoryGirl.define do
   end
 
   factory :club do
-    sequence(:name) { |n| "Book Club #{n}" }
+    sequence(:name) { |n| "Awesome Book Club #{n}" }
     description "A book club for all the cool programmers"
     current_book_id 1
     visibility "public"
     association :organizer, factory: :user
+  end
+
+  factory :comment do
+    content "I like what I'm reading so far."
+    kind "remark"
+    club
+    user
   end
 end

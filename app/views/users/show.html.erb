@@ -9,6 +9,12 @@
       <% end %>
 
       <h2>Recent Comments</h2>
+      <% @user.comments.each do |comment| %>
+        <p>
+          <%= fa_icon("comment", class: "profile-comment") %>
+          <%= comment.content[0..100] %> ... in <%= comment.club.name %>
+        </p>
+      <% end %>
       <h2>Favorite Books</h2>
       <h2>Favorite Authors</h2>
     </div>

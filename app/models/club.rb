@@ -1,6 +1,7 @@
 class Club < ActiveRecord::Base
   has_many :memberships
   has_many :users, through: :memberships
+  has_many :comments
   belongs_to :organizer, class_name: "User"
 
   validates :name,
