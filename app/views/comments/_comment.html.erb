@@ -1,0 +1,9 @@
+<p class="comment <%= comment.kind %>">
+  <%= comment.user.name %>: <%= comment.content %>
+  <% if comment.user == current_user %>
+  <%= link_to fa_icon("times"),
+  club_comment_path(comment.club, comment), method: :delete,
+  data: { confirm: "Are you sure?" },
+  id: "delete-comment" %>
+  <% end %>
+</p>
