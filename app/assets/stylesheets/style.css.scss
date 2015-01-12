@@ -14,6 +14,9 @@ $bluesky: #CEECEF;
 body {
   background-color: $midnight;
   font-family: "Lato";
+  a {
+    text-decoration: none;
+  }
 }
 
 /* Home Page */
@@ -181,6 +184,23 @@ footer {
   }
 }
 
+.profile-club {
+  margin: 10px 0;
+  a {
+    text-decoration: none;
+    color: $midnight;
+    i.fa-bookmark {
+      color: $honeycomb;
+    }
+    i.fa-user {
+      color: $red;
+    }
+    &:hover {
+      color: $mediumgray;
+    }
+  }
+}
+
 /* Comments */
 
 .comment {
@@ -195,6 +215,10 @@ footer {
   }
 }
 
-.profile-comment {
+.profile-remark {
   color: $honeycomb;
+}
+
+.profile-question {
+  color: $red;
 }

@@ -5,14 +5,22 @@
 
       <h2>Current Clubs</h2>
       <% @user.clubs.each do |club| %>
-        <h4><%= link_to club.name, club %></h4>
+        <h4 class="profile-club">
+          <% if club.organizer == @user %>
+            <%= link_to fa_icon("user", text: club.name), club %>
+          <% else %>
+            <%= link_to fa_icon("bookmark", text: club.name), club %>
+          <% end %>
+        </h4>
       <% end %>
 
       <h2>Recent Comments</h2>
       <% @user.comments.each do |comment| %>
         <p>
-          <%= fa_icon("comment", class: "profile-comment") %>
-          <%= comment.content[0..100] %> ... in <%= comment.club.name %>
+          <%= fa_icon("quote-left", class: "profile-#{comment.kind}") %>
+          <%= comment.content[0..100] %> ...
+          <%= fa_icon("quote-right", class: "profile-#{comment.kind}") %>
+          in <%= comment.club.name %>
         </p>
       <% end %>
       <h2>Favorite Books</h2>

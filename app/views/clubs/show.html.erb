@@ -15,19 +15,25 @@
         <p><%= user.name %></p>
       <% end %>
       <h4>Discussion:</h4>
-      <% if @club.users.include? current_user %>
-        <%= form_for [@club, @comment] do |f| %>
-          <% if @comment.errors.any? %>
-            <% @comment.errors.full_messages.each do |msg| %>
-              <p><%= msg %></p>
+        <% if @club.users.include? current_user %>
+          <%= form_for [@club, @comment] do |f| %>
+            <% if @comment.errors.any? %>
+              <% @comment.errors.full_messages.each do |msg| %>
+                <p><%= msg %></p>
+              <% end %>
             <% end %>
+            <div class="row">
+              <div class="small-2 columns">
+                <%= f.select(:kind, options_for_select([["Comment", "remark"],
+                ["Discussion Question", "question"]])) %>
+
+              </div>
+            </div>
+            <%= f.text_area :content, size: "80x5", id: "comment-content" %>
+            <br>
+            <%= f.submit %>
           <% end %>
-          <%= f.select(:kind, options_for_select([["Comment", "remark"],
-              ["Discussion Question", "question"]])) %>
-          <%= f.text_area :content, size: "80x10", id: "comment-content" %>
-          <%= f.submit %>
         <% end %>
-      <% end %>
       <% if @club.comments.any? %>
         <% @club.comments.each do |comment| %>
           <p class="comment <%= comment.kind %>">
@@ -46,7 +52,10 @@
             method: :delete, data: { confirm: "Are you sure?" }%>
       <% end %>
       <% if @club.organizer == current_user %>
-        <h4><%= link_to "Settings", edit_club_path(@club) %></h4>
+        <h4>
+          <%= link_to fa_icon("wrench", text: "Settings"),
+          edit_club_path(@club) %> (You're the organizer)
+        </h4>
       <% end %>
     </div>
   </div>
