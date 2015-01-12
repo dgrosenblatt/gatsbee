@@ -15,6 +15,27 @@
         <p><%= user.name %></p>
       <% end %>
       <h4>Discussion:</h4>
+      <% if @club.users.include? current_user %>
+        <%= form_for [@club, @comment] do |f| %>
+          <% if @comment.errors.any? %>
+            <% @comment.errors.full_messages.each do |msg| %>
+              <p><%= msg %></p>
+            <% end %>
+          <% end %>
+          <%= f.select(:kind, options_for_select([["Comment", "remark"],
+              ["Discussion Question", "question"]])) %>
+          <%= f.text_area :content, size: "80x10", id: "comment-content" %>
+          <%= f.submit %>
+        <% end %>
+      <% end %>
+      <% if @club.comments.any? %>
+        <% @club.comments.each do |comment| %>
+          <p class="comment-<%= comment.kind %>">
+            <%= comment.user.name %>: <%= comment.content %>
+          </p>
+        <% end %>
+      <% end %>
+
       <% if @club.users.include?(current_user) &&
          @club.organizer != current_user %>
         <%= link_to "Leave this Book Club", @membership,
@@ -23,7 +44,6 @@
       <% if @club.organizer == current_user %>
         <h4><%= link_to "Settings", edit_club_path(@club) %></h4>
       <% end %>
-
     </div>
   </div>
 </div>

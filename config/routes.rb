@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  resources :clubs
+  resources :clubs do
+    resources :comments, only: [:create]
+  end
   resources :memberships, only: [:create, :destroy]
-
   get '/profile', to: 'users#show', as: 'profile'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
