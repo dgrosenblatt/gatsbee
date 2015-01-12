@@ -180,3 +180,17 @@ footer {
     }
   }
 }
+
+/* Comments */
+
+.comment {
+  &:hover {
+    #delete-comment {
+      visibility: visible;
+    }
+  }
+  #delete-comment {
+    color: $red;
+    visibility: hidden;
+  }
+}

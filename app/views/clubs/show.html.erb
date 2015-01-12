@@ -30,12 +30,16 @@
       <% end %>
       <% if @club.comments.any? %>
         <% @club.comments.each do |comment| %>
-          <p class="comment-<%= comment.kind %>">
+          <p class="comment <%= comment.kind %>">
             <%= comment.user.name %>: <%= comment.content %>
+            <% if comment.user == current_user %>
+              <%= link_to fa_icon("times"),
+                  club_comment_path(@club, comment), method: :delete,
+                  data: { confirm: "Are you sure?" }, id: "delete-comment" %>
+            <% end %>
           </p>
         <% end %>
       <% end %>
-
       <% if @club.users.include?(current_user) &&
          @club.organizer != current_user %>
         <%= link_to "Leave this Book Club", @membership,

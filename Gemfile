@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-google-oauth2'
 gem 'json'
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 
 gem 'rails_12factor', group: :production
 

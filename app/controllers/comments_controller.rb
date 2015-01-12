@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user
+
   def create
     @club = Club.find(params[:club_id])
     @comment = Comment.new(comment_params)
@@ -11,6 +13,18 @@ class CommentsController < ApplicationController
                                        club_id: @club.id)
       render 'clubs/show'
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @club = @comment.club
+    if @comment.user == current_user
+      @comment.destroy
+      flash[:notice] = "Comment Deleted"
+    else
+      flash[:notice] = "You can't delete that comment"
+    end
+    redirect_to @club
   end
 
   private

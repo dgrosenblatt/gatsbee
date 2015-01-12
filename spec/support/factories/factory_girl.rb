@@ -18,4 +18,11 @@ FactoryGirl.define do
     visibility "public"
     association :organizer, factory: :user
   end
+
+  factory :comment do
+    content "I like what I'm reading so far."
+    kind "remark"
+    club
+    user
+  end
 end

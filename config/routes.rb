@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
   resources :clubs do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
   resources :memberships, only: [:create, :destroy]
   get '/profile', to: 'users#show', as: 'profile'

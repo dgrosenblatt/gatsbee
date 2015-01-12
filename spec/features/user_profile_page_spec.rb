@@ -19,4 +19,6 @@ feature "User views profile page" do
     expect(page).to have_content "Paul Pierce"
   end
 
+  scenario "after joining clubs and making comments"
+
 end
