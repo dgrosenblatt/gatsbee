@@ -19,6 +19,14 @@ feature "User views profile page" do
     expect(page).to have_content "Paul Pierce"
   end
 
-  scenario "after joining clubs and making comments"
+  scenario "after joining clubs and making comments" do
+    sign_in
+    organize_club
+    fill_in "comment-content", with: "This is a good book so far."
+    click_button "Create Comment"
+    click_link "Profile"
 
+    expect(page).to have_content "Awesome Book Club"
+    expect(page).to have_content "This is a good book so far."
+  end
 end
