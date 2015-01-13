@@ -177,6 +177,15 @@ footer {
   }
 }
 
+.club-page-left {
+  border: 2px solid $honeycomb;
+
+}
+.club-page-right {
+  background: $honeycomb;
+  border: 2px solid $honeycomb;
+}
+
 .club {
   border-top: 1px solid $honeycomb;
   h3 {
@@ -211,6 +220,9 @@ footer {
 /* Comments */
 
 .comment {
+  border-top: 1px solid $honeycomb;
+  margin: 0;
+  padding: 3px 0;
   &:hover {
     #delete-comment {
       visibility: visible;
@@ -219,6 +231,24 @@ footer {
   #delete-comment {
     color: $red;
     visibility: hidden;
+  }
+}
+
+.comment-time {
+  font-size: 12px;
+  color: $mediumgray;
+  float: right;
+  padding-right: 2px;
+}
+
+.question {
+  background-color: $honeycomb;
+  .discussion {
+    padding-left: 2px;
+    color: $red;
+  }
+  .comment-time {
+    color: $white;
   }
 }
 
@@ -234,6 +264,8 @@ footer {
 
 .create-button,
 .delete-button {
+  border: none;
+  font-size: 16px;
   border-radius: 5px;
   padding: 4px 5px;
   background-color: $bluesteel;

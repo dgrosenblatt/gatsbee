@@ -14,7 +14,7 @@ feature "Creating a new book club" do
 
     expect(page).to have_content "New Club Created!"
     expect(page).to have_content club.name
-    expect(page).to have_content "Currently Reading"
+    expect(page).to have_content "Reading"
     expect(page).not_to have_content "In between books right now."
   end
 

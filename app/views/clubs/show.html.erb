@@ -2,27 +2,38 @@
   <div class="row">
     <div class="small-12 columns">
       <h1><%= @club.name %></h1>
-      <h4><%= @club.description %></h4>
-      <% unless @club.users.include? current_user %>
-        <%= form_for Membership.new do |f| %>
-          <%= f.hidden_field :club_id, value: @club.id %>
-          <%= f.submit "Join this Book Club", id: "join-club" %>
-        <% end %>
-      <% end %>
-      <% if @club.current_book.nil? %>
-        <h4>
-          In between books right now. (Organizer can pick a book in club Settings.)
-        </h4>
-      <% else %>
-        <h4>Currently Reading: </h4>
-        <p><%= image_tag(@club.current_book.medium_image) %></p>
-        <p><%= @club.current_book.title %></p>
-      <% end %>
-      <h4>Organizer: <%= @club.organizer.name %></h4>
-      <h4>Members:</h4>
-      <% @club.users.each do |user| %>
-        <p><%= user.name %></p>
-      <% end %>
+      <div class="row">
+        <div class="small-10 columns club-page-left">
+          <h2><%= @club.description %></h2>
+          <% unless @club.users.include? current_user %>
+            <%= form_for Membership.new do |f| %>
+              <%= f.hidden_field :club_id, value: @club.id %>
+              <%= f.submit "Join this Book Club", id: "join-club" %>
+            <% end %>
+          <% end %>
+          <h4>Organizer: <%= @club.organizer.name %></h4>
+          <h4>Members:</h4>
+          <% @club.users.each do |user| %>
+            <p><%= user.name %></p>
+          <% end %>
+        </div>
+        <div class="small-2 columns club-page-right">
+          <% if @club.current_book.nil? %>
+            <h4>
+              In between books right now. (Organizer can pick a book in club Settings.)
+            </h4>
+          <% else %>
+            <h4>Reading: </h4>
+            <p><%= image_tag(@club.current_book.medium_image) %></p>
+            <p><%= @club.current_book.title %></p>
+            <small>
+              <%= link_to @club.current_book.amazon_url, target: "_blank" do %>
+                I need the book <%= fa_icon("external-link") %>
+              <% end %>
+            </small>
+          <% end %>
+        </div>
+      </div>
       <h4>Discussion:</h4>
         <% if @club.users.include? current_user %>
           <%= form_for([@club, @comment]) do |f| %>
@@ -52,8 +63,9 @@
       <% end %>
       <% if @club.users.include?(current_user) &&
          @club.organizer != current_user %>
-        <%= link_to "Leave this Book Club", @membership,
-            method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to fa_icon("frown-o", text: "Leave this Book Club"),
+            @membership, method: :delete, data: { confirm: "Are you sure?" },
+            class: "delete-button" %>
       <% end %>
       <% if @club.organizer == current_user %>
         <h4>

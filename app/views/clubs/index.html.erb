@@ -25,7 +25,11 @@
         <div class="club">
           <h3><%= link_to club.name, club %></h3>
           <p><%= club.description %></p>
-          <p>Currently Reading:</p>
+          <% if club.current_book.nil? %>
+            <p>Not reading anything right now.</p>
+          <% else %>
+            <p>Currently Reading: <%= club.current_book.title %></p>
+          <% end %>
         </div>
       <% end %>
     </div>
