@@ -169,17 +169,24 @@ footer {
 .profile-container {
   background-color: $white;
   min-height: 600px;
+  h1,
+  #create,
+  #search
+   {
+    text-align: center;
+  }
 }
 
 .club {
-  background-color: $honeycomb;
-  border-radius: 5px;
-  margin-bottom: 8px;
+  border-top: 1px solid $honeycomb;
+  h3 {
+    margin-top: 12px;
+  }
   a {
     text-decoration: none;
     color: $midnight;
     &:hover {
-      color: $red;
+      color: $mediumgray;
     }
   }
 }
@@ -221,4 +228,17 @@ footer {
 
 .profile-question {
   color: $red;
+}
+
+/* Buttons */
+
+.create-button,
+.delete-button {
+  border-radius: 5px;
+  padding: 4px 5px;
+  background-color: $bluesteel;
+  color: $white;
+  &:hover {
+    color: $honeycomb;
+  }
 }

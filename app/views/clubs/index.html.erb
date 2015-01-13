@@ -6,15 +6,20 @@
       <% else %>
         <h1>All Clubs</h1>
       <% end %>
-      <div>
+      <div id="search">
         <%= form_tag clubs_path, method: :get do %>
           <%= label_tag :query, "Search Book Clubs" %>
+          <br>
           <%= text_field_tag :query %>
-          <%= submit_tag "Search" %>
+          <br>
+          <%= submit_tag "Search", class: "create-button" %>
         <% end %>
       </div>
       <% if current_user %>
-        <p><%= link_to "Create New Book Club", new_club_path %></p>
+        <p id="create">
+          <%= link_to fa_icon("book lg", text:"Create New Book Club"),
+          new_club_path, class: "create-button" %>
+        </p>
       <% end %>
       <% @clubs.each do |club| %>
         <div class="club">
