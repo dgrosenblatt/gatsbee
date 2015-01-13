@@ -11,14 +11,24 @@
   </div>
 
   <%= f.label :name, "Book Club Name" %>
-  <%= f.text_field :name %>
-
+  <br>
+  <%= f.text_field :name, size: 80 %>
+  <br>
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <br>
+  <%= f.text_field :description, size: 80 %>
+  <br>
+  <%= f.label :current_book, "Currently Reading (You can pick this later)" %>
+  <br>
+  <%= f.text_field :current_book,
+      value: (@club.current_book.title unless @club.current_book.nil?),
+      size: 80 %>
+  <br>
+
 
   <%= f.label :visibility %>
   <%= f.select(:visibility,
-  options_for_select([["Public", 1], ["Private", 2]]))  %>
+  options_for_select([["Public", "public"], ["Private", "private"]])) %>
 
   <%= f.submit %>
   <% end %>

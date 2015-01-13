@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.club = @club
     @comment.user = current_user
+    @comment.book = @club.current_book unless @club.current_book.nil?
     if @comment.save
       redirect_to @club, notice: "Comment Saved"
     else

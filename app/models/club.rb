@@ -2,6 +2,7 @@ class Club < ActiveRecord::Base
   has_many :memberships
   has_many :users, through: :memberships
   has_many :comments
+  belongs_to :current_book, class_name: "Book"
   belongs_to :organizer, class_name: "User"
 
   validates :name,

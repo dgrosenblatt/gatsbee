@@ -9,6 +9,15 @@
           <%= f.submit "Join this Book Club", id: "join-club" %>
         <% end %>
       <% end %>
+      <% if @club.current_book.nil? %>
+        <h4>
+          In between books right now. (Organizer can pick a book in club Settings.)
+        </h4>
+      <% else %>
+        <h4>Currently Reading: </h4>
+        <p><%= image_tag(@club.current_book.medium_image) %></p>
+        <p><%= @club.current_book.title %></p>
+      <% end %>
       <h4>Organizer: <%= @club.organizer.name %></h4>
       <h4>Members:</h4>
       <% @club.users.each do |user| %>

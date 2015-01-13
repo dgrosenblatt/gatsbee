@@ -27,6 +27,9 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     @club.organizer = current_user
+    if !params[:club][:current_book].empty?
+      @club.current_book = assign_book(params[:club][:current_book])
+    end
     if @club.save
       @club.users << current_user
       redirect_to @club, notice: "New Club Created!"
@@ -43,6 +46,9 @@ class ClubsController < ApplicationController
   def update
     @club = Club.find(params[:id])
     if @club.organizer == current_user
+      if !params[:club][:current_book].empty?
+        @club.current_book = assign_book(params[:club][:current_book])
+      end
       @club.update_attributes(club_params)
       redirect_to @club, notice: "Book Club Updated!"
     else
@@ -62,4 +68,13 @@ class ClubsController < ApplicationController
     params.require(:club).permit(:name, :description, :visibility)
   end
 
+  def assign_book(title)
+    if @book = Book.find_by(title: title)
+      return @book
+    else
+      @book = Book.new(title: title)
+      AmazonApi.item_search(@book)
+      @book
+    end
+  end
 end
