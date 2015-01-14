@@ -24,11 +24,17 @@
             </h4>
           <% else %>
             <h4>Reading: </h4>
-            <p><%= image_tag(@club.current_book.medium_image) %></p>
+            <% if @club.current_book.medium_image.nil? %>
+              <p><%= fa_icon("book 5x") %></p>
+            <% else %>
+              <p><%= image_tag(@club.current_book.medium_image) %></p>
+            <% end %>
             <p><%= @club.current_book.title %></p>
             <small>
-              <%= link_to @club.current_book.amazon_url, target: "_blank" do %>
-                I need the book <%= fa_icon("external-link") %>
+              <% if !@club.current_book.amazon_url.nil? %>
+                <%= link_to @club.current_book.amazon_url, target: "_blank" do %>
+                  I need the book <%= fa_icon("external-link") %>
+              <% end %>
               <% end %>
             </small>
           <% end %>
