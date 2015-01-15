@@ -24,7 +24,7 @@ body {
 .home-page-container {
   min-height: 600px;
   background: linear-gradient(
-  rgba(0, 0, 0, 0.7),
+  rgba(39, 39, 43, 0.7),
   rgba(0, 0, 0, 1)
   ),
   url("https://unsplash.imgix.net/45/tkLOe7nnQ7mnMsiuijBy_hm.jpg?q=75&fm=jpg&s=77320b2f59f340a0a4d57c34128f2f6e");
@@ -61,7 +61,7 @@ body {
         background-color: $honeycomb;
         a {
           text-decoration: none;
-          color: $bluesteel;
+          color: $red;
         }
       }
     }
@@ -71,72 +71,87 @@ body {
 .stories {
   li {
     p {
+      opacity: 0.75;
       font-family: "Lato";
       font-size: 20px;
       color: $honeycomb;
       text-align: center;
       height: 175px;
       padding-top: 22px;
+      margin-bottom: 50px;
       border: 2px solid $honeycomb;
+      .fa-arrow-circle-down {
+        display: none;
+      }
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
 
-.story1,
-.story2,
-.story3 {
+#story1,
+#story2,
+#story3 {
   width: 100%;
-  height: 450px;
-  background-color: $white;
+  height: 500px;
+  background: linear-gradient(
+  rgba(255, 197, 44, 0.8),
+  rgba(255, 197, 44, 1)
+  ),
+  url("https://s3.amazonaws.com/gatsbee/file0001043307703.jpg");
+
   h1 {
     margin: 0;
+    text-align: center;
+    color: $white;
+    padding-top: 400px;
   }
 }
 
-.story1A {
-  height: 450px;
+#story1A {
+  height: 500px;
   background: linear-gradient(
-  rgba(0, 0, 0, 0.5),
-  rgba(0, 0, 0, 1)
+  rgba(39, 39, 43, 0),
+  rgba(39, 39, 43, 1)
   ),
   url("https://ununsplash.imgix.net/38/zEk8RJdmQrqja2XwbjgJ_DSC_2368.jpg?q=75&fm=jpg&s=0a7f72fcbef949b219b2c83813bc3c45");
   background-attachment: fixed;
   border-top: 2px solid $honeycomb;
   border-bottom: 2px solid $honeycomb;
-
+  background-position: 50% 40%;
 }
 
-.story2A {
-  height: 450px;
+#story2A {
+  height: 500px;
   background: linear-gradient(
-  rgba(0, 0, 0, 0.5),
-  rgba(0, 0, 0, 1)
+  rgba(39, 39, 43, 0),
+  rgba(39, 39, 43, 0.75)
   ),
   url("https://unsplash.imgix.net/photo-1415889678233-eb900aeee9e1?q=75&fm=jpg&s=a41f4d6b1848cd673323fa4ee17da470");
   background-attachment: fixed;
-  background-position: center;
+  background-position: 50% 70%;
   border-top: 2px solid $honeycomb;
   border-bottom: 2px solid $honeycomb;
 
 }
 
-.story3A {
-  height: 450px;
+#story3A {
+  height: 500px;
   background: linear-gradient(
-  rgba(0, 0, 0, 0),
-  rgba(0, 0, 0, 1)
+  rgba(39, 39, 43, 0),
+  rgba(39, 39, 43, 0.5)
   ),
   url("https://ununsplash.imgix.net/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?q=75&fm=jpg&s=2857080adb1de5db2cbddb6d230954bc");
   background-attachment: fixed;
   background-position: 50% 65%;
-  border-top: 2px solid $honeycomb;
   border-bottom: 2px solid $honeycomb;
 }
 
 /* Header */
 
 header {
-  background-color: $bluesteel;
+  background-color: $midnight;
   font-family: "Lato";
   h1 {
     padding-top: 3px;
@@ -170,7 +185,7 @@ header {
 /* Footer */
 
 footer {
-  height: 200px;
+  height: 400px;
   padding: 80px 0;
   background-color: $midnight;
   li {

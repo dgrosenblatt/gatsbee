@@ -7,10 +7,10 @@
   </div>
 
   <div class="row buttons">
-    <button class="small-4 small-offset-1 columns">
+    <button class="large-4 small-12 large-offset-1 columns">
       <%= link_to "FIND A CLUB", clubs_path %>
     </button>
-    <button class="small-4 small-offset-2 columns end">
+    <button class="large-4 small-12 large-offset-2 columns end">
       <%= link_to "SIGN UP WITH GOOGLE", "/auth/google_oauth2" %>
     </button>
   </div>
@@ -18,28 +18,50 @@
   <div class="row stories">
     <div class="small-12 columns">
       <ul class="small-block-grid-3">
-        <li class="clearfix">
-          <p>Discover Books <br><%= fa_icon("book 5x") %></p>
+        <li>
+          <p id="discover">
+            Discover Books
+            <br>
+            <%= fa_icon("book 5x") %>
+            <br>
+            <%= fa_icon("arrow-circle-down 2x") %>
+          </p>
         </li>
-        <li><p>Find Outings<br><%= fa_icon("coffee 5x") %></p></li>
-        <li><p>Engage in Discussion<br><%= fa_icon("comments 5x") %></p></li>
+        <li>
+          <p id="find">
+            Find Outings
+            <br>
+            <%= fa_icon("coffee 5x") %>
+            <br>
+            <%= fa_icon("arrow-circle-down 2x") %>
+          </p>
+        </li>
+        <li>
+          <p id="engage">
+            Engage in Discussion
+            <br>
+            <%= fa_icon("comments 5x") %>
+            <br>
+            <%= fa_icon("arrow-circle-down 2x") %>
+          </p>
+        </li>
       </ul>
     </div>
   </div>
 </div>
 
-<div class="story1">
-    <h1>Discover books</h1>
+<div id="story1">
+  <h1>Discover books</h1>
 </div>
-<div class="story1A">
+<div id="story1A">
 </div>
-<div class="story2">
-    <h1>Find Outings</h1>
+<div id="story2">
+  <h1>Find Outings</h1>
 </div>
-<div class="story2A">
+<div id="story2A">
 </div>
-<div class="story3">
-    <h1>Engage in Discussion</h1>
+<div id="story3">
+  <h1>Engage in Discussion</h1>
 </div>
-<div class="story3A">
+<div id="story3A">
 </div>
