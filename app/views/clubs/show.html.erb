@@ -72,6 +72,11 @@
             @membership, method: :delete, data: { confirm: "Are you sure?" },
             class: "delete-button" %>
       <% end %>
+      <% if !@club.current_book.nil? %>
+        <%= link_to book_path(@club.current_book) do %>
+          <h4>See Discussion Questions related to <%= @club.current_book.title %></h4>
+        <% end %>
+      <% end %>
       <% if @club.organizer == current_user %>
         <h4>
           <%= link_to fa_icon("wrench", text: "Settings"),

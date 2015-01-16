@@ -1,0 +1,19 @@
+<div class="book-container">
+  <div class="row">
+    <div class="small-12 columns">
+      <h1><%= image_tag @book.medium_image %></h1>
+      <h1><%= @book.title %></h1>
+      <h2>
+        Currently <%= pluralize(@book.clubs.count, "club") %> reading this book.
+      </h2>
+
+      <% @book.comments.each do |comment| %>
+        <% if comment.kind == "question" %>
+          <h2>
+            <%= fa_icon("question-circle 2x") %> <%= comment.content %>
+          </h2>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

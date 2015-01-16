@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :clubs do
     resources :comments, only: [:create, :destroy]
   end
+  resources :books, only: [:show]
   resources :memberships, only: [:create, :destroy]
   get '/profile', to: 'users#show', as: 'profile'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

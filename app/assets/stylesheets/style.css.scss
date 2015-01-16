@@ -106,7 +106,11 @@ body {
     margin: 0;
     text-align: center;
     color: $white;
-    padding-top: 400px;
+    padding-top: 75px;
+    font-size: 48px;
+  }
+  .row {
+    margin-top: 75px;
   }
 }
 
@@ -208,14 +212,22 @@ footer {
 /* Clubs */
 
 .clubs-container,
-.profile-container {
-  background-color: $white;
+.profile-container,
+.book-container {
+  background: linear-gradient(
+  rgba(255, 255, 255, 0.5),
+  rgba(255, 255, 255, 0.5)
+  ),
+  url("https://s3.amazonaws.com/gatsbee/light_honeycomb.png");
   min-height: 600px;
   h1,
   #create,
   #search
    {
     text-align: center;
+  }
+  .fa-question-circle {
+    color: $red;
   }
 }
 
