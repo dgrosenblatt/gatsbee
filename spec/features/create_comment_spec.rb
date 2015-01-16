@@ -7,7 +7,7 @@ feature "Create a comment in a club" do
     sign_in
     visit club_path(club)
   end
-  
+
   scenario "as a member of the club with valid content" do
     click_button "Join this Book Club"
     fill_in "comment-content", with: "This is a good book so far."

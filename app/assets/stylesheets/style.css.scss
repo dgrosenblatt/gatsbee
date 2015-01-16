@@ -242,6 +242,10 @@ footer {
   }
 }
 
+.new_comment {
+  display: none;
+}
+
 .profile-club {
   margin: 10px 0;
   a {
@@ -305,7 +309,9 @@ footer {
 /* Buttons */
 
 .create-button,
-.delete-button {
+.delete-button,
+#club-discussion {
+  cursor: pointer;
   border: none;
   font-size: 16px;
   border-radius: 5px;

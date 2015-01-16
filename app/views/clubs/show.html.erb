@@ -40,28 +40,27 @@
           <% end %>
         </div>
       </div>
-      <h4>Discussion:</h4>
-        <% if @club.users.include? current_user %>
-          <%= form_for([@club, @comment]) do |f| %>
-            <% unless @errors.nil? %>
-              <% @errors.each do |msg| %>
-              <div>
-                <%= msg %>
-              </div>
-              <% end %>
-            <% end %>
-            <div class="row">
-              <div class="small-3 columns">
-                <%= f.select(:kind, options_for_select([["Comment", "remark"],
-                ["Discussion Question", "question"]])) %>
-
-              </div>
+      <% if @club.users.include? current_user %>
+      <h4 id="club-discussion">Discuss</h4>
+        <%= form_for([@club, @comment]) do |f| %>
+          <% if !@errors.nil? %>
+            <% @errors.each do |msg| %>
+            <div>
+              <%= msg %>
             </div>
-            <%= f.text_area :content, size: "80x5", id: "comment-content" %>
-            <br>
-            <%= f.submit %>
+            <% end %>
           <% end %>
+          <div class="row">
+            <div class="small-3 columns">
+              <%= f.select(:kind, options_for_select([["Comment", "remark"],
+              ["Discussion Question", "question"]])) %>
+            </div>
+          </div>
+          <%= f.text_area :content, size: "80x5", id: "comment-content" %>
+          <br>
+          <%= f.submit %>
         <% end %>
+      <% end %>
       <% unless @comments.nil? %>
         <div id="club-comments">
           <%= render @comments %>
