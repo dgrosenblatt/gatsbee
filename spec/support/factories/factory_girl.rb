@@ -11,12 +11,21 @@ FactoryGirl.define do
     favorite_books "Harry Potter, Lord of the Rings"
   end
 
+  factory :organizer, class: User do
+    provider "google_oauth2"
+    uid "8327810"
+    name "Bill Belichick"
+    email "bb@pats.org"
+    oauth_token "239ffbi1ifi2"
+    oauth_expires_at Time.new(2016, 02, 24, 12, 0, 0, "+09:00")
+  end
+
   factory :club do
     sequence(:name) { |n| "Awesome Book Club #{n}" }
     description "A book club for all the cool programmers"
-    current_book_id 1
     visibility "public"
-    association :organizer, factory: :user
+    organizer
+    association :current_book, factory: :book
   end
 
   factory :comment do
@@ -24,5 +33,10 @@ FactoryGirl.define do
     kind "remark"
     club
     user
+    book
+  end
+
+  factory :book do
+    title "A Tale of Two Cities"
   end
 end

@@ -1,5 +1,9 @@
 $(window).load(function(){
-  var height = Math.max($( ".club-page-right" ).height(), $( ".club-page-left" ).height());
-  $( ".club-page-left" ).height(height);
-  $( ".club-page-right" ).height(height);
+  var height = Math.max($( " .club-page-right " ).height(), $( " .club-page-left " ).height());
+  $( " .club-page-left " ).height(height);
+  $( " .club-page-right " ).height(height);
+
+  $(" #club-discussion ").click(function(){
+    $(" .new_comment ").slideToggle();
+  });
 });

@@ -1,10 +1,6 @@
 require 'rails_helper'
 
-feature 'View the homepage', %{
-  As a user
-  I want to view information about the website
-  So I can understand what it is
-} do
+feature 'View the homepage' do
   scenario 'without signing in' do
     visit '/'
 

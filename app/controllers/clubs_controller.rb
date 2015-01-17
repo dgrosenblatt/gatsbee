@@ -11,12 +11,13 @@ class ClubsController < ApplicationController
   end
 
   def show
-    @club = Club.find(params[:id])
-    @comments = @club.comments
     @comment = Comment.new
+    @club = Club.find(params[:id])
+    if !@club.current_book.nil?
+      @comments = @club.comments.where(book_id: @club.current_book.id)
+    end
     if @club.users.include?(current_user)
-      @membership = Membership.find_by(user_id: current_user.id,
-                                       club_id: @club.id)
+      @membership = Membership.find_by(user_id: current_user.id, club_id: @club.id)
     end
   end
 

@@ -1,7 +1,10 @@
 require "rails_helper"
 
 feature "Delete a comment" do
-  before { sign_in }
+  before do
+    user = FactoryGirl.create(:user)
+    log_in(user)
+  end
 
   scenario "as the user who created it" do
     club = FactoryGirl.create(:club)
@@ -16,7 +19,9 @@ feature "Delete a comment" do
 
   scenario "as a different club member" do
     comment = FactoryGirl.create(:comment)
-    visit club_path(comment.club)
+    club = comment.club
+    comment.update_attributes(book_id: club.current_book.id)
+    visit club_path(club)
     click_button "Join this Book Club"
 
     expect(page).to have_content comment.content
@@ -25,8 +30,9 @@ feature "Delete a comment" do
 
   scenario "without joining the club" do
     comment = FactoryGirl.create(:comment)
-    visit club_path(comment.club)
-    click_button "Join this Book Club"
+    club = comment.club
+    comment.update_attributes(book_id: club.current_book.id)
+    visit club_path(club)
 
     expect(page).to have_content comment.content
     expect(page).not_to have_css("#delete-comment")
