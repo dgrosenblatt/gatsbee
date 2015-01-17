@@ -21,7 +21,3 @@ feature "Viewing a public club's page" do
     expect(page).not_to have_content "A book club for all the cool programmers"
   end
 end
-
-feature "viewing the current book discussion questions" do
-  scenario "from the show page"
-end

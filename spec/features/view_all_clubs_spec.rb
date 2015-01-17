@@ -6,6 +6,6 @@ feature "View all clubs" do
     visit "/clubs"
 
     expect(page).to have_content "All Clubs"
-    expect(page).to have_content "Book Club 1"
+    expect(page).to have_content "Book Club"
   end
 end
