@@ -30,6 +30,11 @@ class CommentsController < ApplicationController
     redirect_to @club
   end
 
+  def index
+    @club = Club.find(params[:club_id])
+    @comments = @club.comments
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:content, :kind)

@@ -63,6 +63,12 @@
       <% end %>
       <% unless @comments.nil? %>
         <div id="club-comments">
+          <h4>
+            <% if !@club.current_book.nil? %>
+              Currently showing discussion related to <%= @club.current_book.title %>.
+            <% end %>
+            <%= link_to "Discussion history for #{@club.name}", club_comments_path(@club) %>
+          </h4>
           <%= render @comments %>
         </div>
       <% end %>

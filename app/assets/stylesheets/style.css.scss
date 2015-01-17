@@ -234,7 +234,8 @@ footer {
 
 .clubs-container,
 .profile-container,
-.book-container {
+.book-container,
+.club-comments-container {
   background: linear-gradient(
   rgba(255, 255, 255, 0.5),
   rgba(255, 255, 255, 0.5)
@@ -297,6 +298,10 @@ footer {
 }
 
 /* Comments */
+
+#club-comments{
+  margin-top: 20px;
+}
 
 .comment {
   border-top: 1px solid $honeycomb;
