@@ -2,8 +2,10 @@ require "rails_helper"
 
 feature "Editing a club" do
   scenario "as the club's organizer" do
-    sign_in
-    organize_club
+    club = FactoryGirl.create(:club)
+    organizer = club.organizer
+    log_in(organizer)
+    visit club_path(club)
     click_link "Settings"
     fill_in "Name", with: "blerg"
     fill_in "Description", with: "lemon"
@@ -15,8 +17,4 @@ feature "Editing a club" do
     expect(page).to have_content "blerg"
     expect(page).to have_content "Infinite Jest"
   end
-
-  scenario "as a regular club member"
-
-  scenario "without signing in"
 end

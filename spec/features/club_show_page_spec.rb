@@ -2,9 +2,10 @@ require "rails_helper"
 
 feature "Viewing a public club's page" do
   scenario "while signed in" do
-    club = FactoryGirl.create(:club)
+    organizer = FactoryGirl.create(:user)
+    club = FactoryGirl.create(:club, organizer_id: organizer.id)
     user = FactoryGirl.create(:user)
-    sign_in
+    log_in(user)
     visit club_path(club)
 
     expect(page).to have_content "Book Club"
@@ -22,7 +23,5 @@ feature "Viewing a public club's page" do
 end
 
 feature "viewing the current book discussion questions" do
-  scenario "from the show page" do
-    
-  end
+  scenario "from the show page"
 end

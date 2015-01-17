@@ -4,11 +4,11 @@ feature "Creating a new book club" do
   scenario "as a signed in user" do
     club = FactoryGirl.build(:club)
     user = FactoryGirl.create(:user)
-    sign_in
+    log_in(user)
     visit new_club_path
     fill_in "Book Club Name", with: club.name
     fill_in "Description", with: club.description
-    fill_in "Currently Reading (You can pick this later)", with: "The Corrections"
+    fill_in "Currently Reading (You can pick this later)", with: club.current_book.title
     select "Public", from: "Visibility"
     click_button "Create Club"
 
@@ -21,7 +21,7 @@ feature "Creating a new book club" do
   scenario "without required information" do
     club = FactoryGirl.build(:club)
     user = FactoryGirl.create(:user)
-    sign_in
+    log_in(user)
     visit new_club_path
     click_button "Create Club"
 
