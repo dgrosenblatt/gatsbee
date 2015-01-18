@@ -16,7 +16,7 @@ $(document).ready(function(){
       height: "-=25"
     }, 100, function(){
       $(this).css("margin-bottom", "50px");
-      $(this).find(".fa-arrow-circle-down").fadeOut(10);
+      $(this).find(".fa-arrow-circle-down").fadeOut(1);
     });
   });
 

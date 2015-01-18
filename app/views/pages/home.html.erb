@@ -56,7 +56,6 @@
     <% Book.top_five.each do |book| %>
       <div class="large-2 columns">
         <%= image_tag book.medium_image %>
-        <p><%= book.title %></p>
         <p><%= pluralize(book.clubs_count, "club")%> reading</p>
       </div>
     <% end %>
