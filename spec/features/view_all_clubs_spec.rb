@@ -5,7 +5,7 @@ feature "View all clubs" do
     FactoryGirl.create_list(:club, 10)
     visit "/clubs"
 
-    expect(page).to have_content "All Clubs"
+    expect(page).to have_content "Find a Book Club"
     expect(page).to have_content "Book Club"
   end
 end

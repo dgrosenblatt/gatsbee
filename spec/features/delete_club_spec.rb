@@ -10,7 +10,7 @@ feature "Deleting a club" do
     click_link "Delete This Club"
 
     expect(page).to have_content "Club Deleted!"
-    expect(page).to have_content "All Clubs"
+    expect(page).to have_content "Find a Book Club"
     expect(page).not_to have_content "A book club for all the cool programmers"
   end
 

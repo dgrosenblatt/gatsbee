@@ -11,7 +11,7 @@ feature "Leaving a club" do
     click_on "Leave this Book Club"
 
     expect(page).to have_content "You have left #{@club.name}"
-    expect(page).to have_content "All Clubs"
+    expect(page).to have_content "Find a Book Club"
   end
 
   scenario "before joining it" do

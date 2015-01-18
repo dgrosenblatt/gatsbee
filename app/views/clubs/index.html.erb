@@ -1,17 +1,16 @@
 <div class="clubs-container">
+  <div id="club-index-header">
+    <h1>Find a Book Club</h1>
+  </div>
   <div class="row">
     <div class="small-12 columns">
       <% if @query %>
         <h1>Results for '<%= @query %>'</h1>
-      <% else %>
-        <h1>All Clubs</h1>
       <% end %>
       <div id="search">
         <%= form_tag clubs_path, method: :get do %>
           <%= label_tag :query, "Search Book Clubs" %>
-          <br>
           <%= text_field_tag :query %>
-          <br>
           <%= submit_tag "Search", class: "create-button" %>
         <% end %>
       </div>
@@ -21,17 +20,30 @@
           new_club_path, class: "create-button" %>
         </p>
       <% end %>
-      <% @clubs.each do |club| %>
-        <div class="club">
-          <h3><%= link_to club.name, club %></h3>
-          <p><%= club.description %></p>
-          <% if club.current_book.nil? %>
-            <p>Not reading anything right now.</p>
-          <% else %>
-            <p>Currently Reading: <%= club.current_book.title %></p>
-          <% end %>
-        </div>
-      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+        <% @clubs.each do |club| %>
+          <li>
+            <div class="club">
+              <% if !club.current_book.nil? %>
+                <%= image_tag club.current_book.medium_image %>
+              <% end %>
+              <div class="club-text"></div>
+              <h3><%= link_to club.name, club %></h3>
+              <p><%= club.description %></p>
+              <% if club.current_book.nil? %>
+                <p>[ Deciding on a New Book... ]</p>
+              <% else %>
+                <p>Reading: <span class="book-title"><%= club.current_book.title %></span></p>
+              <% end %>
+            <div>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

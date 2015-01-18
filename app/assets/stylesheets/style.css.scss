@@ -266,17 +266,69 @@ footer {
   border: 2px solid $honeycomb;
 }
 
+#club-index-header{
+  height: 300px;
+  background-image: url("https://s3.amazonaws.com/gatsbee/rsz_old_library.jpg");
+  background-position: 50% 90%;
+  h1 {
+    position: relative;
+    margin-top: 0;
+    top: 252px;
+    background: $honeycomb;
+    opacity: 0.9;
+    color: $midnight;
+    text-shadow: 1px 1px $honeycomb;
+  }
+}
+
 .club {
-  border-top: 1px solid $honeycomb;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  height: 200px;
+  &:hover {
+    box-shadow:inset 0px 0px 0px 2px $red;
+  }
+  .club-text {
+    border: 3px solid $honeycomb;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: $midnight;
+    opacity: 0.7;
+  }
+  h3, h4, p {
+    color: $honeycomb;
+    text-shadow: 1px 1px $midnight;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    padding-top: 5px;
+    .book-title {
+      text-decoration: underline;
+    }
+  }
   h3 {
-    margin-top: 12px;
+    text-shadow: none;
+    background-color: $honeycomb;
   }
   a {
     text-decoration: none;
     color: $midnight;
     &:hover {
-      color: $mediumgray;
+      color: $red;
     }
+  }
+  img {
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
   }
 }
 
