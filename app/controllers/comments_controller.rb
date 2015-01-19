@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @club, notice: "Comment Saved"
     else
+      @meeting = Meeting.new
       @comments = @club.comments
       @errors = @comment.errors.full_messages
       @membership = Membership.find_by(user_id: current_user.id,

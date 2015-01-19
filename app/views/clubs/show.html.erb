@@ -59,11 +59,13 @@
           <br>
           <%= f.submit %>
         <% end %>
-        <% @meetings.each do |meeting| %>
-          <% if meeting.formatted_time > DateTime.now %>
-            <p>
-              Meeting on <%= meeting.formatted_time %> at <%= meeting.location %>
-            </p>
+        <% if !@meetings.nil? %>
+          <% @meetings.each do |meeting| %>
+            <% if meeting.formatted_time > DateTime.now %>
+              <p>
+                Meeting on <%= meeting.formatted_time %> at <%= meeting.location %>
+              </p>
+            <% end %>
           <% end %>
         <% end %>
       <h4 id="club-discussion">Discuss</h4>
