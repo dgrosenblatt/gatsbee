@@ -41,6 +41,17 @@
         </div>
       </div>
       <% if @club.users.include? current_user %>
+      <h4 id="club-meetings">Meet</h4>
+        <%= form_for([@club, @meeting]) do |f| %>
+          <%= f.label :meeting_time, "When?" %>
+          <%= f.text_field :meeting_time %>
+          <br>
+          <%= f.label :location, "Where?" %>
+          <%= f.text_field :location %>
+          <br>
+          <%= f.submit %>
+        <% end %>
+
       <h4 id="club-discussion">Discuss</h4>
         <%= form_for([@club, @comment]) do |f| %>
           <% if !@errors.nil? %>

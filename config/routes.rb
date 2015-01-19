@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :clubs do
     resources :comments, only: [:create, :destroy, :index]
+    resources :meetings, only: [:create]
   end
   resources :books, only: [:show]
   resources :memberships, only: [:create, :destroy]

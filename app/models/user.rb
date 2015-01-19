@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :clubs, through: :memberships
   has_many :organized_clubs, class_name: "Club", foreign_key: "organizer_id"
   has_many :comments
+  has_many :meetings
 
   def self.from_omniauth(auth)
     User.where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
