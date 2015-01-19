@@ -12,6 +12,7 @@ feature "Creating a new meeting" do
     click_button "Create Meeting"
 
     expect(page).to have_content "New Meeting Created!"
+    expect(page).to have_content "Tomrorrow at 7 pm"
   end
 
   scenario "with invalid data" do

@@ -1,7 +1,7 @@
 require 'google/api_client'
 
 class Meeting < ActiveRecord::Base
-  before_save :create_calendar_event
+  before_save :create_calendar_event, :format_time
   belongs_to :user
   belongs_to :club
 
@@ -13,6 +13,10 @@ class Meeting < ActiveRecord::Base
     if Chronic.parse(meeting_time).nil?
       errors.add(:meeting_time, "couldn't be understood.")
     end
+  end
+
+  def format_time
+    self.formatted_time = Chronic.parse(meeting_time).to_datetime
   end
 
   private

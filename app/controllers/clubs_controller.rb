@@ -13,6 +13,7 @@ class ClubsController < ApplicationController
   def show
     @comment = Comment.new
     @club = Club.find(params[:id])
+    @meetings = @club.meetings
     if !@club.current_book.nil?
       @comments = @club.comments.where(book_id: @club.current_book.id)
     end

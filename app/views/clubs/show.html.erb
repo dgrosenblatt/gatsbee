@@ -59,6 +59,13 @@
           <br>
           <%= f.submit %>
         <% end %>
+        <% @meetings.each do |meeting| %>
+          <% if meeting.formatted_time > DateTime.now %>
+            <p>
+              Meeting on <%= meeting.formatted_time %> at <%= meeting.location %>
+            </p>
+          <% end %>
+        <% end %>
       <h4 id="club-discussion">Discuss</h4>
         <%= form_for([@club, @comment]) do |f| %>
           <% if !@errors.nil? %>
@@ -79,7 +86,7 @@
           <%= f.submit %>
         <% end %>
       <% end %>
-      <% unless @comments.nil? %>
+      <% if !@comments.nil? %>
         <div id="club-comments">
           <h4>
             <% if !@club.current_book.nil? %>
