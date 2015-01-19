@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
       )
     self.update_attributes(
       oauth_token: JSON.parse(response.body)["access_token"],
-      oauth_expires_at: DateTime.now.advance(:seconds, JSON.parse(response.body)["expires_in"])
+      oauth_expires_at: DateTime.now.advance(seconds: JSON.parse(response.body)["expires_in"])
       )
   end
 
