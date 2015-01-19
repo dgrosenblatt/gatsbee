@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Creating a new meeting" do
-  scenario "with valid data as a logged in club member" do
+  scenario "with valid data" do
     club = FactoryGirl.create(:club)
     user = FactoryGirl.create(:user)
     Membership.create(user_id: user.id, club_id: club.id)
@@ -12,5 +12,18 @@ feature "Creating a new meeting" do
     click_button "Create Meeting"
 
     expect(page).to have_content "New Meeting Created!"
+  end
+
+  scenario "with invalid data" do
+    club = FactoryGirl.create(:club)
+    user = FactoryGirl.create(:user)
+    Membership.create(user_id: user.id, club_id: club.id)
+    log_in(user)
+    visit club_path(club)
+    fill_in "When?", with: "blerg"
+    click_button "Create Meeting"
+
+    expect(page).to have_content "Meeting time couldn't be understood."
+    expect(page).to have_content "Location can't be blank"
   end
 end

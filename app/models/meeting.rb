@@ -5,8 +5,16 @@ class Meeting < ActiveRecord::Base
   belongs_to :user
   belongs_to :club
 
-  #location can't be blank
-  #meeting_time can't return nil when Chronic.parse'd
+  validate :date_can_be_translated
+  validates :location,
+    presence: true
+
+  def date_can_be_translated
+    if Chronic.parse(meeting_time).nil?
+      errors.add(:meeting_time, "couldn't be understood.")
+    end
+  end
+
   private
 
   def create_calendar_event

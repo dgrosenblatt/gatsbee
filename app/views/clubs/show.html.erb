@@ -43,6 +43,14 @@
       <% if @club.users.include? current_user %>
       <h4 id="club-meetings">Meet</h4>
         <%= form_for([@club, @meeting]) do |f| %>
+          <% if @meeting.errors.any? %>
+            <% @meeting.errors.full_messages.each do |msg| %>
+              <div>
+                <%= msg %>
+              </div>
+            <% end %>
+          <% end %>
+
           <%= f.label :meeting_time, "When?" %>
           <%= f.text_field :meeting_time %>
           <br>
@@ -51,7 +59,6 @@
           <br>
           <%= f.submit %>
         <% end %>
-
       <h4 id="club-discussion">Discuss</h4>
         <%= form_for([@club, @comment]) do |f| %>
           <% if !@errors.nil? %>
