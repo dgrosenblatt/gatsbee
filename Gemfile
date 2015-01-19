@@ -11,6 +11,8 @@ gem 'omniauth-google-oauth2'
 gem 'json'
 gem 'font-awesome-rails'
 gem 'vacuum'
+gem 'google-api-client'
+gem 'chronic'
 
 gem 'rails_12factor', group: :production
 
