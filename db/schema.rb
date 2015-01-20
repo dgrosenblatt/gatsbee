@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120134059) do
+ActiveRecord::Schema.define(version: 20150120202244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20150120134059) do
     t.datetime "updated_at",                         null: false
   end
 
+  add_index "clubs", ["current_book_id"], name: "index_clubs_on_current_book_id", using: :btree
+  add_index "clubs", ["organizer_id"], name: "index_clubs_on_organizer_id", using: :btree
+
   create_table "comments", force: :cascade do |t|
     t.string   "content",    null: false
     t.integer  "user_id",    null: false
@@ -45,6 +48,10 @@ ActiveRecord::Schema.define(version: 20150120134059) do
     t.string   "kind"
     t.integer  "book_id"
   end
+
+  add_index "comments", ["book_id"], name: "index_comments_on_book_id", using: :btree
+  add_index "comments", ["club_id"], name: "index_comments_on_club_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "meetings", force: :cascade do |t|
     t.string   "location",       null: false
@@ -56,12 +63,18 @@ ActiveRecord::Schema.define(version: 20150120134059) do
     t.datetime "formatted_time"
   end
 
+  add_index "meetings", ["club_id"], name: "index_meetings_on_club_id", using: :btree
+  add_index "meetings", ["user_id"], name: "index_meetings_on_user_id", using: :btree
+
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "club_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "memberships", ["club_id"], name: "index_memberships_on_club_id", using: :btree
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",                            null: false
