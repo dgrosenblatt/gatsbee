@@ -28,13 +28,16 @@ class AmazonApi
     if results.nil?
       return results
     end
-    results.map! do |item|
-      if item["ItemAttributes"]["ProductGroup"] == "Book"
-        { title: item["ItemAttributes"]["Title"],
-          image_url: AmazonApi.image_lookup(item["ASIN"])[:medium_image] }
-      end
+    books = {}
+    results.each do |item|
+      books[item["ASIN"]] = { title: item["ItemAttributes"]["Title"] }
     end
-    results.compact!
-    results.take(5)
+    images = request.item_lookup(
+      query: { "ItemId"=>books.keys.join(','), "ResponseGroup"=>"Images" }
+      ).parse["ItemLookupResponse"]["Items"]["Item"]
+    images.each do |image|
+      books[image["ASIN"]][:image_url] = image["MediumImage"]["URL"]
+    end
+    books.values
   end
 end
