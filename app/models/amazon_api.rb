@@ -34,6 +34,7 @@ class AmazonApi
           image_url: AmazonApi.image_lookup(item["ASIN"])[:medium_image] }
       end
     end
-    results.compact!.take(5)
+    results.compact!
+    results.take(5)
   end
 end
