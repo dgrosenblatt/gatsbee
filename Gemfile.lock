@@ -95,6 +95,7 @@ GEM
       multi_json (~> 1.10)
       retriable (~> 1.4)
       signet (~> 0.6)
+    gravtastic (3.2.6)
     hashie (3.3.2)
     hike (1.2.3)
     i18n (0.7.0)
@@ -266,6 +267,7 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-rails
   google-api-client
+  gravtastic
   jbuilder (~> 2.0)
   jquery-rails
   json

@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+
+  has_gravatar
   has_many :memberships
   has_many :clubs, through: :memberships
   has_many :organized_clubs, class_name: "Club", foreign_key: "organizer_id"

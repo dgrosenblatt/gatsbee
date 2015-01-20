@@ -9,8 +9,10 @@ feature "Joining a club" do
     click_on "Join this Book Club"
 
     expect(page).to have_content club.organizer.name
-    expect(page).to have_content user.name
     expect(page).to have_content "You have joined #{club.name}"
     expect(page).not_to have_css "input#join-club"
+    within ".club-page-left" do
+      expect(page).to have_css 'img'
+    end
   end
 end

@@ -13,6 +13,7 @@ gem 'font-awesome-rails'
 gem 'vacuum'
 gem 'google-api-client', :require => 'google/api_client'
 gem 'chronic'
+gem 'gravtastic'
 
 gem 'rails_12factor', group: :production
 

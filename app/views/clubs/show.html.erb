@@ -14,7 +14,7 @@
           <h4>Organizer: <%= @club.organizer.name %></h4>
           <h4>Members:</h4>
           <% @club.users.each do |user| %>
-            <p><%= user.name %></p>
+            <span><%= image_tag user.gravatar_url, alt: user.name %></span>
           <% end %>
         </div>
         <div class="small-2 columns club-page-right">
