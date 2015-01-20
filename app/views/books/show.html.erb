@@ -10,10 +10,41 @@
       <% @book.comments.each do |comment| %>
         <% if comment.kind == "question" %>
           <h2>
-            <%= fa_icon("question-circle 2x") %> <%= comment.content %>
+            <%= fa_icon("question-circle") %> <%= comment.content %>
           </h2>
         <% end %>
       <% end %>
     </div>
+  </div>
+  <div class="row">
+
+    <h2>You might also enjoy:</h2>
+
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <% if @similar_books.nil? %>
+        <p>Nothing similar on Amazon...</p>
+      <% else %>
+        <% @similar_books.each do |book| %>
+          <span>
+            <p><%= image_tag book[:image_url] %></p>
+            <p><%= book[:title] %></p>
+          </span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+
+    <h2>Here's what else is popular on GatsBee right now:</h2>
+    <% Book.top_five.each do |book| %>
+    <!-- Turn into foundation block grid? -->
+    <div class="large-2 columns">
+      <%= image_tag book.medium_image %>
+      <p><%= pluralize(book.clubs_count, "club")%> reading</p>
+    </div>
+    <% end %>
+
   </div>
 </div>
