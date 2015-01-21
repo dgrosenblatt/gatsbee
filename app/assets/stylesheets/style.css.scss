@@ -397,17 +397,80 @@ footer {
   }
 }
 
+#meeting_meeting_time,
+#meeting_location {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+#meeting-time-info {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+}
+
+#meetings-form {
+  margin-top: 0;
+  margin-bottom: 0;
+  display: none;
+  text-align: center;
+  p {
+    cursor: pointer;
+  }
+  h4 {
+    margin-top: 0;
+  }
+}
+
+#meeting-instructions {
+  display: none;
+}
+
+.meeting {
+  margin-top: 0;
+}
+
 .new_comment {
   display: none;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 /* Comments */
 
 #club-comments{
-  margin-top: 20px;
+  margin-top: 0;
+  h4 {
+    margin-top: 0;
+  }
+}
+
+#comment-name {
+  font-weight: 700;
+}
+
+#comment-content {
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+select#comment_kind {
+  font-family: "Lato";
+  background: $white;
+  border: 2px solid $bluesteel;
+  color: $bluesteel;
+  font-size: 18px;
+  text-align: center;
+  height: 29px;
+  padding: 5px;
 }
 
 .comment {
+  font-family: "Libre Baskerville";
   border-top: 1px solid $honeycomb;
   margin: 0;
   padding: 3px 0;
@@ -430,10 +493,11 @@ footer {
 }
 
 .question {
-  background-color: $honeycomb;
-  .discussion {
+  color: $white;
+  background-color: $red;
+  .discussion .fa {
     padding-left: 2px;
-    color: $red;
+    color: $white;
   }
   .comment-time {
     color: $white;
@@ -444,12 +508,33 @@ footer {
 
 .create-button,
 .delete-button,
-#club-discussion {
+#club-discussion,
+#club-discover,
+#club-meetings,
+#club-settings,
+.new-meeting-button,
+.new-comment-button {
   cursor: pointer;
   border: none;
   font-size: 16px;
-  border-radius: 5px;
-  padding: 4px 5px;
+  padding: 7px 8px;
+  background-color: $honeycomb;
+  color: $midnight;
+  a {
+    color: $white;
+  }
+  &:hover {
+    color: $red;
+  }
+}
+
+#club-meetings {
+  margin-top: 30px;
+}
+
+.delete-button,
+.new-meeting-button,
+.new-comment-button {
   background-color: $bluesteel;
   color: $white;
   &:hover {
@@ -457,6 +542,34 @@ footer {
   }
 }
 
-.delete-button {
-  background-color: $red;
+.new-meeting-button {
+  margin-top: 10px;
+}
+
+p#create,
+#search {
+  display: inline-block;
+}
+
+p#create {
+  margin-top: 23px;
+}
+
+.create-button {
+  padding-top: 3px;
+  padding-bottom: 4px;
+}
+
+#club-settings{
+  margin-top: 50px;
+  margin-bottom: 10px;
+  &:hover {
+    color: $midnight;
+  }
+  a {
+    color: $midnight;
+    &:hover {
+      color: $red;
+    }
+  }
 }

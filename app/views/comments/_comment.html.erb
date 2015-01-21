@@ -1,6 +1,6 @@
 <p class="comment <%= comment.kind %>">
   <% if comment.kind == "remark" %>
-    <%= comment.user.name %>:
+    <span id="comment-name"><%= comment.user.name %></span>:
   <% elsif comment.kind == "question" %>
     <span class="discussion"><%= fa_icon("question-circle") %></span>
   <% end %>
