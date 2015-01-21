@@ -3,10 +3,7 @@
     <div class="small-12 columns">
       <h1><%= image_tag @book.medium_image %></h1>
       <h1><%= @book.title %></h1>
-      <h2>
-        Currently <%= pluralize(@book.clubs.count, "club") %> reading this book.
-      </h2>
-
+      <h1><%= pluralize(@book.clubs.count, "book club") %> on GatsBee reading this book.</h1>
       <% @book.comments.each do |comment| %>
         <% if comment.kind == "question" %>
           <h2>
@@ -17,34 +14,37 @@
     </div>
   </div>
   <div class="row">
-
-    <h2>You might also enjoy:</h2>
-
+    <h2>Similar Books from Amazon:</h2>
   </div>
   <div class="row">
     <div class="small-12 columns">
       <% if @similar_books.nil? %>
         <p>Nothing similar on Amazon...</p>
       <% else %>
-        <% @similar_books.each do |book| %>
-          <span>
-            <p><%= image_tag book[:image_url] %></p>
-            <p><%= book[:title] %></p>
-          </span>
-        <% end %>
+        <ul class="small-block-grid-4">
+          <% @similar_books.each do |book| %>
+            <li>
+              <p><%= image_tag book[:image_url] %></p>
+              <p><%= book[:title] %></p>
+            </li>
+          <% end %>
+        </ul>
       <% end %>
     </div>
   </div>
   <div class="row">
 
     <h2>Here's what else is popular on GatsBee right now:</h2>
-    <% Book.top_five.each do |book| %>
-    <!-- Turn into foundation block grid? -->
-    <div class="large-2 columns">
-      <%= image_tag book.medium_image %>
-      <p><%= pluralize(book.clubs_count, "club")%> reading</p>
-    </div>
-    <% end %>
-
+    <ul class="small-block-grid-5">
+      <% Book.top_five.each do |book| %>
+        <li>
+          <div>
+            <%= image_tag book.medium_image %>
+            <p><%= book.title %></p>
+            <p><%= pluralize(book.clubs_count, "club")%> reading</p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

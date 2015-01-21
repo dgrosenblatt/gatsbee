@@ -69,8 +69,10 @@
       <% if !@meetings.nil? %>
         <h4 class="meeting">Upcoming Meetings:</h4>
         <% @meetings.each do |meeting| %>
-          <% if meeting.formatted_time > DateTime.now %>
-            <h4 class="meeting"><%= meeting.formatted_time %> at <%= meeting.location %></h4>
+          <% if meeting.formatted_time > Time.now %>
+            <h4 class="meeting">
+              <%= meeting.formatted_time.localtime.strftime("%A, %B %d, %Y, %l:%M %p") %> at <%= meeting.location %>
+            </h4>
           <% end %>
         <% end %>
       <% end %>

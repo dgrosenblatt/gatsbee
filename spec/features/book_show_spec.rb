@@ -10,7 +10,7 @@ feature "view a book's discussion questions and popularity" do
     visit book_path(book)
 
     expect(page).to have_content book.title
-    expect(page).to have_content "Currently 1 club reading this book"
+    expect(page).to have_content "1 book club on GatsBee reading this book"
     expect(page).to have_content comment.content
   end
 end
