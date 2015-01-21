@@ -228,10 +228,70 @@ footer {
 
 .flash {
   background-color: $honeycomb;
-  color: $white;
+  color: $red;
   text-align: center;
   font-family: "Lato";
   font-size: 24px;
+}
+
+/* Profile Pages */
+
+.profile-container {
+  .gravatar {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    img {
+      border-radius: 50%;
+    }
+  }
+  .comment-feed {
+    padding: 0;
+    border: 3px solid $honeycomb;
+    h2 {
+      width: 100%;
+      background-color: $honeycomb;
+      margin-top: 0;
+      text-align: center;
+    }
+    p {
+      margin: 16px 5px;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: $midnight;
+    i.fa-bookmark {
+      color: $honeycomb;
+    }
+    i.fa-user {
+      color: $red;
+    }
+  }
+}
+
+.profile-club {
+  margin: 10px 0;
+  border: 3px solid $honeycomb;
+  &:first-of-type {
+    margin-top: 0;
+  }
+  &:hover {
+    background-color: $honeycomb;
+  }
+  h3,
+  h4 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.profile-remark {
+  color: $honeycomb;
+}
+
+.profile-question {
+  color: $red;
 }
 
 /* Clubs */
@@ -248,8 +308,7 @@ footer {
   min-height: 600px;
   h1,
   #create,
-  #search
-   {
+  #search {
     text-align: center;
   }
   .fa-question-circle {
@@ -342,23 +401,6 @@ footer {
   display: none;
 }
 
-.profile-club {
-  margin: 10px 0;
-  a {
-    text-decoration: none;
-    color: $midnight;
-    i.fa-bookmark {
-      color: $honeycomb;
-    }
-    i.fa-user {
-      color: $red;
-    }
-    &:hover {
-      color: $mediumgray;
-    }
-  }
-}
-
 /* Comments */
 
 #club-comments{
@@ -396,14 +438,6 @@ footer {
   .comment-time {
     color: $white;
   }
-}
-
-.profile-remark {
-  color: $honeycomb;
-}
-
-.profile-question {
-  color: $red;
 }
 
 /* Buttons */

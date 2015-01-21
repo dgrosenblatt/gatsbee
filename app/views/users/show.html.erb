@@ -1,20 +1,31 @@
 <div class="profile-container">
   <div class="row">
     <div class="small-12 columns">
+      <span class="gravatar"><%= image_tag @user.gravatar_url(size: 110) %></span>
       <h1><%= @user.name %></h1>
-
-      <h2>Current Clubs</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 small-12 columns">
       <% @user.clubs.each do |club| %>
-        <h4 class="profile-club">
-          <% if club.organizer == @user %>
-            <%= link_to fa_icon("user", text: club.name), club %>
-          <% else %>
-            <%= link_to fa_icon("bookmark", text: club.name), club %>
-          <% end %>
-        </h4>
+        <%= link_to club do %>
+          <div class="profile-club">
+            <h3>
+              <% if club.organizer == @user %>
+                <%= fa_icon("user", text: club.name) %>
+              <% else %>
+                <%= fa_icon("bookmark", text: club.name) %>
+              <% end %>
+            </h3>
+            <% if !club.current_book.nil? %>
+              <h4><%= club.current_book.title %></h4>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
-
-      <h2>Recent Comments</h2>
+    </div>
+    <div class="large-6 small-12 columns comment-feed">
+      <h2>Comment Feed</h2>
       <% @user.comments.each do |comment| %>
         <p>
           <%= fa_icon("quote-left", class: "profile-#{comment.kind}") %>
@@ -23,8 +34,6 @@
           in <%= comment.club.name %>
         </p>
       <% end %>
-      <h2>Favorite Books</h2>
-      <h2>Favorite Authors</h2>
     </div>
   </div>
 </div>
