@@ -259,14 +259,20 @@ footer {
 
 .club-page-left {
   border: 2px solid $honeycomb;
-
+  .gravatar{
+    display: inline-block;
+    margin-bottom: 5px;
+    img {
+      border-radius: 50%;
+    }
+  }
 }
 .club-page-right {
   background: $honeycomb;
   border: 2px solid $honeycomb;
 }
 
-#club-index-header{
+#club-index-header {
   height: 300px;
   background-image: url("https://s3.amazonaws.com/gatsbee/rsz_old_library.jpg");
   background-position: 50% 90%;
