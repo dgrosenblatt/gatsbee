@@ -30,13 +30,13 @@
               <p><%= image_tag(@club.current_book.medium_image) %></p>
             <% end %>
             <p><%= @club.current_book.title %></p>
-            <small>
+            <p>
               <% if !@club.current_book.amazon_url.nil? %>
                 <%= link_to @club.current_book.amazon_url, target: "_blank" do %>
                   I need the book <%= fa_icon("external-link") %>
               <% end %>
               <% end %>
-            </small>
+            </p>
           <% end %>
         </div>
       </div>

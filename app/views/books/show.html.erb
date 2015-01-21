@@ -4,14 +4,15 @@
       <h1><%= image_tag @book.medium_image %></h1>
       <h1><%= @book.title %></h1>
       <h1><%= pluralize(@book.clubs.count, "book club") %> on GatsBee reading this book.</h1>
-      <% @book.comments.each do |comment| %>
-        <% if comment.kind == "question" %>
-          <h2>
-            <%= fa_icon("question-circle") %> <%= comment.content %>
-          </h2>
-        <% end %>
-      <% end %>
     </div>
+  </div>
+  <div class="row">
+    <h2>Discussion questions from other clubs:</h2>
+    <% @book.comments.each do |comment| %>
+    <% if comment.kind == "question" %>
+    <h3><%= fa_icon("question-circle") %> <%= comment.content %></h3>
+    <% end %>
+    <% end %>
   </div>
   <div class="row">
     <h2>Similar Books from Amazon:</h2>
