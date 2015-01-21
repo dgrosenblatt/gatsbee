@@ -35,4 +35,14 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def recent_comments
+    comments = []
+    memberships.each do |membership|
+      membership.club.comments.order(created_at: :desc).limit(5).each do |comment|
+        comments << comment
+      end
+    end
+    comments
+  end
 end

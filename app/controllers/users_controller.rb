@@ -3,6 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @comments = @user.recent_comments
   end
-
 end

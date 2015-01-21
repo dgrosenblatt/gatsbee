@@ -26,7 +26,7 @@
     </div>
     <div class="large-6 small-12 columns comment-feed">
       <h2>Comment Feed</h2>
-      <% @user.comments.each do |comment| %>
+      <% @user.recent_comments.each do |comment| %>
         <p>
           <%= fa_icon("quote-left", class: "profile-#{comment.kind}") %>
           <%= comment.content[0..100] %> ...
