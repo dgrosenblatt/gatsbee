@@ -52,15 +52,17 @@
 
 <div id="story1">
   <div class="row">
-    <div class="large-2 columns"><%= fa_icon("book 3x") %></div>
-    <% Book.top_five.each do |book| %>
-      <div class="large-2 columns">
-        <%= image_tag book.medium_image %>
-        <p><%= pluralize(book.clubs_count, "club")%> reading</p>
-      </div>
-    <% end %>
+    <ul class="small-block-grid-5">
+      <% Book.top_five.each do |book| %>
+        <li>
+          <%= image_tag book.medium_image %>
+          <p><%= pluralize(book.clubs_count, "club")%> reading</p>
+        </li>
+      <% end %>
+    </ul>
   </div>
   <h1>Discover books</h1>
+  <h3>from Amazon and other clubs on GatsBee</h3>
 </div>
 <div id="story1A">
 </div>
@@ -84,7 +86,7 @@
     <h4 class="demo-input-times" id="inputtime3">Two Weeks Hence</h4>
   </div>
   <h1 id="organize">Organize Meetings</h1>
-  <h3>...with Google Calendar integration and natural language processing</h3>
+  <h3>with Google Calendar integration and natural language processing</h3>
 </div>
 <div id="story2A">
 </div>
