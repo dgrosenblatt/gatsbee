@@ -36,13 +36,25 @@ class User < ActiveRecord::Base
     end
   end
 
-  def recent_comments
-    comments = []
-    memberships.each do |membership|
-      membership.club.comments.order(created_at: :desc).limit(5).each do |comment|
-        comments << comment
-      end
-    end
-    comments
+  def comment_feed
+    ActiveRecord::Base.connection.execute(
+    "select comments.content, comments.kind, clubs.name
+    from comments
+    join clubs on clubs.id = comments.club_id
+    where age(comments.created_at) < '7 days' and club_id in (
+      select club_id
+      from memberships
+      where user_id = #{self.id})"
+    ).to_a
+  end
+
+  def clubs_and_books
+    ActiveRecord::Base.connection.execute(
+    "select clubs.id, clubs.name, books.title as book_title, clubs.organizer_id
+    from clubs
+    join books on books.id = clubs.current_book_id
+    join memberships on memberships.club_id = clubs.id
+    where memberships.user_id = #{self.id}"
+    ).to_a
   end
 end

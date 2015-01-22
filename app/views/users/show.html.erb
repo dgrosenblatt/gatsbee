@@ -7,18 +7,18 @@
   </div>
   <div class="row">
     <div class="large-6 small-12 columns">
-      <% @user.clubs.each do |club| %>
-        <%= link_to club do %>
+      <% @clubs.each do |club| %>
+        <%= link_to club_path(club["id"]) do %>
           <div class="profile-club">
             <h3>
-              <% if club.organizer == @user %>
-                <%= fa_icon("user", text: club.name) %>
+              <% if club["organizer_id"].to_i == current_user.id %>
+                <%= fa_icon("user", text: club["name"]) %>
               <% else %>
-                <%= fa_icon("bookmark", text: club.name) %>
+                <%= fa_icon("bookmark", text: club["name"]) %>
               <% end %>
             </h3>
-            <% if !club.current_book.nil? %>
-              <h4><%= club.current_book.title %></h4>
+            <% if !club["book_title"].nil? %>
+              <h4><%= club["book_title"] %></h4>
             <% end %>
           </div>
         <% end %>
@@ -26,12 +26,12 @@
     </div>
     <div class="large-6 small-12 columns comment-feed">
       <h2>Comment Feed</h2>
-      <% @user.recent_comments.each do |comment| %>
+      <% @user.comment_feed.each do |comment| %>
         <p>
-          <%= fa_icon("quote-left", class: "profile-#{comment.kind}") %>
-          <%= comment.content[0..100] %> ...
-          <%= fa_icon("quote-right", class: "profile-#{comment.kind}") %>
-          in <%= comment.club.name %>
+          <%= fa_icon("quote-left", class: "profile-#{comment["kind"]}") %>
+          <%= comment["content"][0..100] %> ...
+          <%= fa_icon("quote-right", class: "profile-#{comment["kind"]}") %>
+          in <%= comment["name"] %>
         </p>
       <% end %>
     </div>
