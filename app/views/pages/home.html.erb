@@ -65,8 +65,26 @@
 <div id="story1A">
 </div>
 <div id="story2">
-  <h1>Organize Meetings</h1>
-  <h3>GatsBee will automatically add book club meetings to your Google Calendar</h3>
+  <h1 id="calendar-icon"><%= fa_icon("calendar 5x") %></h1>
+  <div id="demo-box">
+    <h4 class="demo-box-times" id="parsetime1">
+      <%= Chronic.parse("Next Monday at noon").localtime.strftime("%A, %B %d, %Y, %l:%M %p") %>
+    </h4>
+    <h4 class="demo-box-times" id="parsetime2">
+      <%= Chronic.parse("Tomorrow, seven in the evening").localtime.strftime("%A, %B %d, %Y, %l:%M %p") %>
+    </h4>
+    <h4 class="demo-box-times" id="parsetime3">
+      <%= Chronic.parse("Two Weeks Hence").localtime.strftime("%A, %B %d, %Y, %l:%M %p") %>
+    </h4>
+  </div>
+  <h1 id="arrow-icon"><%= fa_icon("reply 5x") %></h2>
+  <div id="demo-input">
+    <h4 class="demo-input-times" id="inputtime1">Next Monday at noon</h4>
+    <h4 class="demo-input-times" id="inputtime2">Tomorrow, seven in the evening</h4>
+    <h4 class="demo-input-times" id="inputtime3">Two Weeks Hence</h4>
+  </div>
+  <h1 id="organize">Organize Meetings</h1>
+  <h3>...with Google Calendar integration and natural language processing</h3>
 </div>
 <div id="story2A">
 </div>

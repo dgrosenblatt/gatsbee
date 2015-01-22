@@ -45,4 +45,65 @@ $(document).ready(function(){
       scrollTop: $("#story3").offset().top
     }, 500);
   });
+
+  $("#inputtime1").hover(
+    function() {
+      $(this).css({"background-color":"#030D4F", "color":"#FFF", "opacity":"1"});
+      $("#parsetime1").css("opacity","1");
+    },
+    function(){
+      $(this).css({"background-color":"#E7EDEA", "color": "#000", "opacity":"0.7"});
+      $("#parsetime1").css("opacity", "0.5");
+    }
+  );
+  $("#inputtime2").hover(
+    function() {
+      $(this).css({"background-color":"#030D4F", "color":"#FFF", "opacity":"1"});
+      $("#parsetime2").css("opacity", "1");
+    },
+    function(){
+      $(this).css({"background-color":"#E7EDEA", "color": "#000", "opacity":"0.7"});
+      $("#parsetime2").css("opacity", "0.5");
+    }
+  );
+  $("#inputtime3").hover(
+    function() {
+      $(this).css({"background-color":"#030D4F", "color":"#FFF", "opacity":"1"});
+      $("#parsetime3").css("opacity", "1");
+    },
+    function(){
+      $(this).css({"background-color":"#E7EDEA", "color": "#000", "opacity":"0.7"});
+      $("#parsetime3").css("opacity", "0.5");
+    }
+  );
+  $("#parsetime1").hover(
+    function() {
+      $(this).css("opacity", "1")
+      $("#inputtime1").css({"background-color":"#030D4F", "color":"#FFF", "opacity":"1"});
+    },
+    function(){
+      $(this).css("opacity", "0.5")
+      $("#inputtime1").css({"background-color":"#E7EDEA", "color": "#000", "opacity":"0.7"})
+    }
+  );
+  $("#parsetime2").hover(
+    function() {
+      $(this).css("opacity", "1")
+      $("#inputtime2").css({"background-color":"#030D4F", "color":"#FFF", "opacity":"1"});
+    },
+    function(){
+      $(this).css("opacity", "0.5")
+      $("#inputtime2").css({"background-color":"#E7EDEA", "color": "#000", "opacity":"0.7"})
+    }
+  );
+  $("#parsetime3").hover(
+    function() {
+      $(this).css("opacity", "1")
+      $("#inputtime3").css({"background-color":"#030D4F", "color":"#FFF", "opacity":"1"});
+    },
+    function(){
+      $(this).css("opacity", "0.5")
+      $("#inputtime3").css({"background-color":"#E7EDEA", "color": "#000", "opacity":"0.7"})
+    }
+  );
 });
