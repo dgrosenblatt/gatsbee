@@ -1,4 +1,4 @@
-<div class="large-6 small-12 large-centered columns">
+<div class="large-6 small-12 large-centered columns club-form">
   <%= form_for @club do |f| %>
 
   <div class="club-form-errors">
@@ -12,25 +12,20 @@
 
   <%= f.label :name, "Book Club Name" %>
   <br>
-  <%= f.text_field :name, size: 80 %>
+  <%= f.text_field :name, size: 40 %>
   <br>
   <%= f.label :description %>
   <br>
-  <%= f.text_field :description, size: 80 %>
+  <%= f.text_field :description, size: 40 %>
   <br>
   <%= f.label :current_book, "Currently Reading (You can pick this later)" %>
   <br>
   <%= f.text_field :current_book,
       value: (@club.current_book.title unless @club.current_book.nil?),
-      size: 80 %>
+      size: 40 %>
   <br>
 
-
-  <%= f.label :visibility %>
-  <%= f.select(:visibility,
-  options_for_select([["Public", "public"], ["Private", "private"]])) %>
-
-  <%= f.submit %>
+  <%= f.submit "Save Club", id: "club-save-button" %>
   <% end %>
 
 </div>

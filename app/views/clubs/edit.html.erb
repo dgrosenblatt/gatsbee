@@ -4,7 +4,7 @@
       <h1>Edit Settings for <%= @club.name %></h1>
       <%= render "form" %>
       <div>
-        <p>
+        <p class="club-delete">
           <%= link_to fa_icon("times-circle lg", text: "Delete This Club"),
               club_path(@club),
               method: :delete, data: { confirm: "Are you sure?" },

@@ -9,8 +9,7 @@ feature "Creating a new book club" do
     fill_in "Book Club Name", with: club.name
     fill_in "Description", with: club.description
     fill_in "Currently Reading (You can pick this later)", with: club.current_book.title
-    select "Public", from: "Visibility"
-    click_button "Create Club"
+    click_button "Save Club"
 
     expect(page).to have_content "New Club Created!"
     expect(page).to have_content club.name
@@ -23,7 +22,7 @@ feature "Creating a new book club" do
     user = FactoryGirl.create(:user)
     log_in(user)
     visit new_club_path
-    click_button "Create Club"
+    click_button "Save Club"
 
     expect(page).to have_content "Name can't be blank"
     expect(page).not_to have_content "New Club Created!"
