@@ -3,21 +3,19 @@
     <h1>Find a Book Club</h1>
   </div>
   <div class="row">
-    <div class="small-12 columns">
+    <div class="small-8 small-centered columns club-query-create">
       <% if @query %>
         <h1>Results for '<%= @query %>'</h1>
       <% end %>
       <div id="search">
         <%= form_tag clubs_path, method: :get do %>
-          <%= label_tag :query, "Search Book Clubs" %>
-          <%= text_field_tag :query %>
+          <%= text_field_tag :query, nil, placeholder: "Search Clubs" %>
           <%= submit_tag "Search", class: "create-button" %>
         <% end %>
       </div>
       <% if current_user %>
         <p id="create">
-          <%= link_to fa_icon("book lg", text:"Create New Book Club"),
-          new_club_path, class: "create-button" %>
+          <%= link_to "Create New Book Club", new_club_path, class: "create-button" %>
         </p>
       <% end %>
     </div>
