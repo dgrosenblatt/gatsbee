@@ -5,7 +5,7 @@ feature "Search clubs" do
     boston = FactoryGirl.create(:club, name: "Boston book club")
     ruby = FactoryGirl.create(:club, name: "Reading Ruby Programmers")
     visit clubs_path
-    fill_in "Search Book Clubs", with: "Boston"
+    fill_in "query", with: "Boston"
     click_button "Search"
 
     expect(page).to have_content "Results for 'Boston'"
