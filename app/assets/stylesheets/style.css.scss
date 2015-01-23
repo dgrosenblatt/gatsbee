@@ -425,6 +425,11 @@ footer {
   border: 2px solid $honeycomb;
 }
 
+.club-page-header {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 #club-index-header {
   height: 300px;
   background-image: url("https://s3.amazonaws.com/gatsbee/rsz_old_library.jpg");
@@ -624,7 +629,8 @@ select#comment_kind {
 #club-settings,
 .new-meeting-button,
 .new-comment-button,
-#club-save-button {
+#club-save-button,
+#join-club {
   cursor: pointer;
   border: none;
   font-size: 16px;
@@ -668,6 +674,15 @@ select#comment_kind {
 
 #club-meetings {
   margin-top: 30px;
+}
+
+.delete-membership {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  a {
+    background-color: $red;
+  }
 }
 
 .delete-button,

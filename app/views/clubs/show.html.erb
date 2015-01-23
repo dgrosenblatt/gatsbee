@@ -1,6 +1,6 @@
 <div class="clubs-container">
   <div class="row">
-    <div class="small-12 columns">
+    <div class="small-12 columns club-page-header">
       <h1><%= @club.name %></h1>
       <div class="row">
         <div class="small-10 columns club-page-left">
@@ -41,29 +41,31 @@
         </div>
       </div>
 
-      <% if @club.organizer == current_user %>
+      <% if @club.users.include? current_user %>
       <h4 id="club-meetings">Meet</h4>
-      <div id="meetings-form">
-        <%= form_for([@club, @meeting]) do |f| %>
-          <% if @meeting.errors.any? %>
-            <% @meeting.errors.full_messages.each do |msg| %>
-              <div><%= msg %></div>
+      <% if @club.organizer == current_user %>
+        <div id="meetings-form">
+          <%= form_for([@club, @meeting]) do |f| %>
+            <% if @meeting.errors.any? %>
+              <% @meeting.errors.full_messages.each do |msg| %>
+                <div><%= msg %></div>
+              <% end %>
             <% end %>
+            <h4>Send a new event invite via Google Calendar to all group members:</h4>
+            <%= f.text_field :meeting_time, size: 40, placeholder: "When?" %>
+            <p id="meeting-time-info">(What can I write here?)</p>
+            <div id="meeting-instructions">
+              <h4>GatsBee can understand dates, for example:</h4>
+              <p>This Tuesday at 5PM</p>
+              <p>Friday 10:00</p>
+              <p>Tomorrow at 7 in the evening</p>
+              <p>January 5 at 7pm</p>
+              <p>1 week hence</p>
+              <p>1/22/2015 at noon</p>
+            </div>
+            <%= f.text_field :location, size: 40, placeholder: "Where?" %>
+            <%= f.submit "Create Meeting", class: "new-meeting-button" %>
           <% end %>
-          <h4>Send a new event invite via Google Calendar to all group members:</h4>
-          <%= f.text_field :meeting_time, size: 40, placeholder: "When?" %>
-          <p id="meeting-time-info">(What can I write here?)</p>
-          <div id="meeting-instructions">
-            <h4>GatsBee can understand dates, for example:</h4>
-            <p>This Tuesday at 5PM</p>
-            <p>Friday 10:00</p>
-            <p>Tomorrow at 7 in the evening</p>
-            <p>January 5 at 7pm</p>
-            <p>1 week hence</p>
-            <p>1/22/2015 at noon</p>
-          </div>
-          <%= f.text_field :location, size: 40, placeholder: "Where?" %>
-          <%= f.submit "Create Meeting", class: "new-meeting-button" %>
         <% end %>
       </div>
       <% if !@meetings.nil? %>
@@ -108,18 +110,20 @@
           <%= render @comments %>
         </div>
       <% end %>
-      <% if @club.users.include?(current_user) &&
-         @club.organizer != current_user %>
-        <%= link_to fa_icon("frown-o", text: "Leave this Book Club"),
-            @membership, method: :delete, data: { confirm: "Are you sure?" },
-            class: "delete-button" %>
-      <% end %>
       <% if !@club.current_book.nil? %>
         <%= link_to book_path(@club.current_book) do %>
           <h4 id="club-discover">
             Discover questions and books related to <%= @club.current_book.title %>
           </h4>
         <% end %>
+      <% end %>
+      <% if @club.users.include?(current_user) &&
+        @club.organizer != current_user %>
+        <p class="delete-membership">
+          <%= link_to fa_icon("frown-o", text: "Leave this Book Club"),
+          @membership, method: :delete, data: { confirm: "Are you sure?" },
+          class: "delete-button" %>
+        </p>
       <% end %>
       <% if @club.organizer == current_user %>
         <h4 id="club-settings">
