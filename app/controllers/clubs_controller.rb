@@ -68,7 +68,7 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :description, :visibility)
+    params.require(:club).permit(:name, :description)
   end
 
   def assign_book(title)

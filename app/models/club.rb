@@ -14,9 +14,6 @@ class Club < ActiveRecord::Base
   validates :description,
     length: { maximum: 140 }
 
-  validates :visibility,
-    presence: true
-
   validates :organizer_id,
     presence: true
 

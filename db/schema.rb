@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120202244) do
+ActiveRecord::Schema.define(version: 20150123164428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,12 @@ ActiveRecord::Schema.define(version: 20150120202244) do
   end
 
   create_table "clubs", force: :cascade do |t|
-    t.string   "name",                               null: false
+    t.string   "name",            null: false
     t.string   "description"
     t.integer  "current_book_id"
-    t.string   "visibility",      default: "public", null: false
-    t.integer  "organizer_id",                       null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.integer  "organizer_id",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "clubs", ["current_book_id"], name: "index_clubs_on_current_book_id", using: :btree
@@ -83,8 +82,6 @@ ActiveRecord::Schema.define(version: 20150120202244) do
     t.string   "oauth_token",                         null: false
     t.datetime "oauth_expires_at",                    null: false
     t.string   "role",             default: "member"
-    t.string   "favorite_authors"
-    t.string   "favorite_books"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email"

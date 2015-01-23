@@ -7,8 +7,6 @@ FactoryGirl.define do
     oauth_token "1234567890abcdefg"
     oauth_expires_at Time.new(2016, 02, 24, 12, 0, 0, "+09:00")
     role "member"
-    favorite_authors "Charles Dickens, Jonathan Franzen"
-    favorite_books "Harry Potter, Lord of the Rings"
   end
 
   factory :organizer, class: User do
@@ -23,7 +21,6 @@ FactoryGirl.define do
   factory :club do
     sequence(:name) { |n| "Awesome Book Club #{n}" }
     description "A book club for all the cool programmers"
-    visibility "public"
     organizer
     association :current_book, factory: :book
   end
