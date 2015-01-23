@@ -7,32 +7,44 @@
   </div>
   <div class="row">
     <div class="large-6 small-12 columns">
-      <% @clubs.each do |club| %>
-        <%= link_to club_path(club["id"]) do %>
+      <% if @clubs.empty? %>
+        <%= link_to clubs_path do %>
           <div class="profile-club">
-            <h3>
-              <% if club["organizer_id"].to_i == current_user.id %>
-                <%= fa_icon("user", text: club["name"]) %>
-              <% else %>
-                <%= fa_icon("bookmark", text: club["name"]) %>
-              <% end %>
-            </h3>
-            <% if !club["book_title"].nil? %>
-              <h4><%= club["book_title"] %></h4>
-            <% end %>
+            <h3>Go Join Some Clubs!</h3>
           </div>
+        <% end %>
+      <% else %>
+        <% @clubs.each do |club| %>
+          <%= link_to club_path(club["id"]) do %>
+            <div class="profile-club">
+              <h3>
+                <% if club["organizer_id"].to_i == current_user.id %>
+                  <%= fa_icon("user", text: club["name"]) %>
+                <% else %>
+                  <%= fa_icon("bookmark", text: club["name"]) %>
+                <% end %>
+              </h3>
+              <% if !club["book_title"].nil? %>
+                <h4><%= club["book_title"] %></h4>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
     <div class="large-6 small-12 columns comment-feed">
       <h2>Comment Feed</h2>
-      <% @user.comment_feed.each do |comment| %>
-        <p>
-          <%= fa_icon("quote-left", class: "profile-#{comment["kind"]}") %>
-          <%= comment["content"][0..100] %> ...
-          <%= fa_icon("quote-right", class: "profile-#{comment["kind"]}") %>
-          in <%= comment["name"] %>
-        </p>
+      <% if @comments.empty? %>
+        <h3>Nothing here yet!</h3>
+      <% else %>
+        <% @comments.each do |comment| %>
+          <p>
+            <%= fa_icon("quote-left", class: "profile-#{comment["kind"]}") %>
+            <%= comment["content"][0..100] %> ...
+            <%= fa_icon("quote-right", class: "profile-#{comment["kind"]}") %>
+            in <%= comment["name"] %>
+          </p>
+        <% end %>
       <% end %>
     </div>
   </div>
