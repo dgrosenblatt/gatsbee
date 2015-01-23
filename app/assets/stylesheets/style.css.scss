@@ -152,7 +152,6 @@ body {
     top: 13px;
   }
   .demo-box-times {
-    border-radius: 7px;
     background-color: $bluesteel;
     border: 2px solid $bluesteel;
     box-shadow: 3px 3px 0 0 $mediumgray;
@@ -178,7 +177,6 @@ body {
   .demo-input-times {
     background-color: $lightgray;
     border: 2px solid $bluesteel;
-    border-radius: 7px;
     color: $bluesteel;
     text-align: center;
     margin: 5px;
@@ -196,7 +194,44 @@ body {
 }
 
 #story3 {
-  background: url("https://s3.amazonaws.com/gatsbee/honey_im_subtle_%402X.png");
+  background: linear-gradient(
+  rgba(255, 255, 255, 0.2),
+  rgba(255, 255, 255, 1)
+  ), url("https://s3.amazonaws.com/gatsbee/honey_im_subtle_%402X.png");
+  .discussion-points {
+    margin-top: 40px;
+    border: 3px solid $honeycomb;
+    background-color: $honeycomb;
+    border-radius: 7px;
+  }
+  #bee {
+    margin-top: 70px;
+  }
+  h1 {
+    text-align: center;
+    .fa-forumbee {
+      color: $honeycomb;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+  h3 {
+    padding: 20px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 7px;
+  }
+  .discuss-even {
+    float: right;
+    background-color: $bluesteel;
+    color: $lightgray;
+  }
+  .discuss-odd {
+    background-color: $red;
+    color: $white;
+  }
 }
 
 #story1A {
