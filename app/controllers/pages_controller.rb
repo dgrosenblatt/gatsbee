@@ -4,4 +4,7 @@ class PagesController < ApplicationController
       redirect_to profile_path
     end
   end
+
+  def about
+  end
 end

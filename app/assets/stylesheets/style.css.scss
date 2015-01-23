@@ -392,7 +392,8 @@ footer {
 .clubs-container,
 .profile-container,
 .book-container,
-.club-comments-container {
+.club-comments-container,
+.about-page-container {
   background: linear-gradient(
   rgba(255, 255, 255, 0.5),
   rgba(255, 255, 255, 0.5)
@@ -680,5 +681,13 @@ p#create {
     &:hover {
       color: $red;
     }
+  }
+}
+
+/* About Page */
+
+.about-page-container {
+  img {
+    border-radius: 50%;
   }
 }
