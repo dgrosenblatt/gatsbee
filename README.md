@@ -10,3 +10,4 @@ Book suggestions provided via the Amazon product advertising API (and the vacuum
 
 Meetings can be created in google calendars of book club members with the chronic gem for date string parsing and the google calendar api.
 
+You'll need postgres, google credentials, and aws credentials to run the app locally in dev. Ngrok can be used for google sign in.
