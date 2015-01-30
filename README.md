@@ -4,4 +4,9 @@
 
 GatsBee the busy bee wants to help you organize your book club.
 
-He has a top hat and a monocle and shows up sometimes.
+Create and join clubs, and comment on books.
+
+Book suggestions provided via the Amazon product advertising API (and the vacuum gem).
+
+Meetings can be created in google calendars of book club members with the chronic gem for date string parsing and the google calendar api.
+
