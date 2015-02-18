@@ -43,7 +43,7 @@ class ClubsController < ApplicationController
 
   def edit
     @club = Club.find(params[:id])
-    render :show if @club.organizer != current_user
+    redirect_to @club if @club.organizer != current_user
   end
 
   def update
