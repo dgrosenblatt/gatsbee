@@ -17,6 +17,10 @@ class Club < ActiveRecord::Base
   validates :organizer_id,
     presence: true
 
+  def assign_book(title)
+    self.current_book = Book.find_by(title: title) || AmazonApi.item_search(Book.new(title: title))
+  end
+
   def self.search(query)
     where("plainto_tsquery(?) @@ " +
           "to_tsvector('english', name || ' ' || description)",

@@ -10,6 +10,7 @@ class AmazonApi
     book.amazon_itemid = results["ASIN"]
     book.amazon_url = results["DetailPageURL"]
     book.update_attributes(image_lookup(results["ASIN"]))
+    book
   end
 
   def self.image_lookup(asin)
