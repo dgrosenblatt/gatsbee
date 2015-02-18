@@ -1,5 +1,6 @@
 class ClubsController < ApplicationController
   before_action :authenticate_user, except: :index
+  before_action :authorize_organizer, only: [:edit, :update, :destroy]
 
   def index
     if params[:query]
@@ -42,26 +43,21 @@ class ClubsController < ApplicationController
   end
 
   def edit
-    @club = Club.find(params[:id])
-    redirect_to @club if @club.organizer != current_user
   end
 
   def update
-    @club = Club.find(params[:id])
-    if @club.organizer == current_user
-      if !params[:club][:current_book].empty?
-        @club.assign_book(params[:club][:current_book])
-      end
-      @club.update_attributes(club_params)
+    if !params[:club][:current_book].empty?
+      @club.assign_book(params[:club][:current_book])
+    end
+    if @club.update_attributes(club_params)
       redirect_to @club, notice: "Book Club Updated!"
     else
-      render :show
+      render :edit
     end
   end
 
   def destroy
-    @club = Club.find(params[:id])
-    @club.destroy if @club.organizer == current_user
+    @club.destroy
     redirect_to clubs_path, notice: "Club Deleted!"
   end
 
@@ -69,5 +65,10 @@ class ClubsController < ApplicationController
 
   def club_params
     params.require(:club).permit(:name, :description)
+  end
+
+  def authorize_organizer
+    @club = Club.find(params[:id])
+    redirect_to @club if @club.organizer != current_user
   end
 end
