@@ -57,4 +57,8 @@ class User < ActiveRecord::Base
     where memberships.user_id = #{self.id}"
     ).to_a
   end
+
+  def has_email?
+    email.present?
+  end
 end
