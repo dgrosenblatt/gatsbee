@@ -29,9 +29,8 @@ class ClubsController < ApplicationController
   end
 
   def create
-    @club = Club.new(club_params)
-    @club.organizer = current_user
-    if !params[:club][:current_book].empty?
+    @club = Club.new(club_params.merge(organizer: current_user))
+    if params[:club][:current_book].present?
       @club.assign_book(params[:club][:current_book])
     end
     if @club.save
@@ -46,7 +45,7 @@ class ClubsController < ApplicationController
   end
 
   def update
-    if !params[:club][:current_book].empty?
+    if params[:club][:current_book].present?
       @club.assign_book(params[:club][:current_book])
     end
     if @club.update_attributes(club_params)
