@@ -58,7 +58,12 @@ class User < ActiveRecord::Base
     ).to_a
   end
 
+
   def has_email?
     email.present?
+  end
+
+  def has_name?
+    name.present?
   end
 end
