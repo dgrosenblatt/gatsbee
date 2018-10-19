@@ -20,6 +20,10 @@ class Club < ActiveRecord::Base
   def assign_book(title)
     self.current_book = Book.find_by(title: title) || AmazonApi.item_search(Book.new(title: title))
   end
+  
+  def has_current_book?
+    current_book.present?
+  end
 
   def self.search(query)
     where("plainto_tsquery(?) @@ " +
