@@ -12,4 +12,8 @@ class Book < ActiveRecord::Base
     order("clubs_count DESC").
     limit(5)
   end
+  
+  def default_title
+    title || 'Book Title'
+  end
 end
